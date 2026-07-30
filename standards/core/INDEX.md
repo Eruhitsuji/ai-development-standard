@@ -47,3 +47,14 @@ Plan
 
 Each phase must define its expected input, output, review viewpoint, and test
 viewpoint. The phase can be lightweight, but it must be explicit.
+
+## Project Adoption
+
+The standard supports two downstream adoption paths:
+
+- new project initialization from a template repository
+- existing project adoption through a dedicated adoption issue and pull request
+
+Both paths must install the same `.ai/managed` snapshot model. Existing project
+adoption must preserve current files by default and defer enforcement until the
+project can pass the required checks.
