@@ -28,6 +28,7 @@ Use this repository as the canonical source for:
 - downstream `.ai/managed` and `.ai/project` separation
 - Codex, Claude Code, and Kiro adapter templates
 - new project initialization flow
+- existing project adoption flow
 - standard update flow
 - Issue and pull request templates
 - GitHub Actions starter workflows
@@ -82,6 +83,20 @@ The shared baseline defines these project-independent quality areas:
   output handling, secrets, dependencies, data protection, auditability, and
   least privilege
 
+## Adoption Modes
+
+Use one of two adoption modes.
+
+| Mode | Use When | Primary Flow |
+| --- | --- | --- |
+| New project | The repository is being created from scratch | `docs/flows/NEW_PROJECT.md` |
+| Existing project | The repository already has code, CI, issues, or team rules | `docs/flows/EXISTING_PROJECT_ADOPTION.md` |
+
+Both modes install a committed standard snapshot under `.ai/managed` and keep
+project-specific rules under `.ai/project`. Existing projects add the standard
+in stages and preserve current CI, templates, and AI instructions unless a
+reviewed adoption pull request changes them.
+
 ## New Project Flow
 
 1. Create a new repository from `ai-project-template`.
@@ -94,6 +109,26 @@ The shared baseline defines these project-independent quality areas:
 8. Complete foundation issues before normal feature work starts.
 
 See [docs/flows/NEW_PROJECT.md](docs/flows/NEW_PROJECT.md).
+Use `templates/foundation-issues/new-project.md` for the initial foundation
+Epic.
+
+## Existing Project Adoption Flow
+
+1. Audit existing project structure, CI, owners, issue templates, PR templates,
+   and AI instruction files.
+2. Create an adoption issue from
+   `templates/github/ISSUE_TEMPLATE/standard-adoption.yml`.
+3. Create an adoption branch such as `chore/adopt-ai-development-standard`.
+4. Install the standard snapshot into `.ai/managed`.
+5. Create project-specific files under `.ai/project` with TODOs where details
+   are not yet known.
+6. Preserve existing files and manually merge standard references where needed.
+7. Open an adoption pull request and create follow-up foundation issues.
+
+See
+[docs/flows/EXISTING_PROJECT_ADOPTION.md](docs/flows/EXISTING_PROJECT_ADOPTION.md).
+Use `templates/foundation-issues/existing-project-adoption.md` for the adoption
+foundation Epic.
 
 ## Standard Update Flow
 
@@ -116,6 +151,18 @@ python scripts/validate-standard.py
 
 The validation script checks the presence of required files and basic adapter
 consistency.
+
+For an existing downstream repository, first inspect the expected adoption work:
+
+```bash
+python scripts/plan-adoption.py --project-dir ../existing-project --profiles core python
+```
+
+Then install the snapshot conservatively:
+
+```bash
+python scripts/init-project.py --project-dir ../existing-project --mode existing --commit <standard-commit-sha> --profiles core python
+```
 
 ## Versioning
 

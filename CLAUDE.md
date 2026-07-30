@@ -6,6 +6,7 @@
 @standards/core/REVIEW.md
 @docs/flows/OVERALL_FLOW.md
 @docs/flows/NEW_PROJECT.md
+@docs/flows/EXISTING_PROJECT_ADOPTION.md
 @docs/flows/STANDARD_UPDATE.md
 @.ai/project/PROJECT.yml
 @.ai/project/COMMANDS.yml
