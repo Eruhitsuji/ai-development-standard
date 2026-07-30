@@ -1,0 +1,80 @@
+schema_version: 1
+
+repository:
+  owner: Eruhitsuji
+  name: existing-project
+  default_branch: main
+  visibility: private
+
+adoption:
+  mode: existing-project
+  level: guided
+  branch: chore/adopt-ai-development-standard
+  create_adoption_pr: true
+  overwrite_existing_entry_files: false
+  enforce_rulesets_immediately: false
+
+standard:
+  repository: Eruhitsuji/ai-development-standard
+  version: 0.1.0
+  commit: REPLACE_WITH_RELEASE_COMMIT_SHA
+
+profiles:
+  - core
+  - python
+
+ai_tools:
+  codex: true
+  claude_code: true
+  kiro: false
+
+existing_project:
+  lifecycle: active
+  production_system: false
+  open_pull_requests: unknown
+  release_freeze: false
+  preserve_existing_ci: true
+  preserve_existing_issue_templates: true
+  preserve_existing_pull_request_template: true
+  preserve_existing_agent_instructions: true
+
+inventory:
+  languages: []
+  runtimes: {}
+  package_managers: []
+  frameworks: []
+  current_commands:
+    setup: TODO
+    format: TODO
+    lint: TODO
+    unit_test: TODO
+    integration_test: TODO
+    full_check: TODO
+
+owners:
+  maintainers:
+    - Eruhitsuji
+  project_owner: TODO
+  technical_owners: []
+  reviewers: []
+
+known_conflicts:
+  files: []
+  workflows: []
+  branch_rules: []
+  conventions: []
+
+foundation_issues:
+  create: true
+  include:
+    - confirm-product-and-owners
+    - define-project-commands
+    - document-architecture
+    - align-codeowners
+    - stabilize-ci
+    - enable-branch-protection
+
+verification:
+  standard_validation: true
+  run_existing_checks: true
+  allow_todo_commands: true
