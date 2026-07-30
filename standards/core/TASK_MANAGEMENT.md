@@ -1,6 +1,9 @@
 # Task Management Standard
 
-GitHub Issues are the source of truth for actionable work. GitHub Projects are used for planning, prioritization, status, ownership, and cross-project visibility.
+GitHub Issues are the source of truth for actionable work.
+
+GitHub Projects are used for planning, prioritization, status, ownership, and
+cross-project visibility.
 
 ## Status Values
 
@@ -17,8 +20,65 @@ Cancelled
 
 ## Standard Fields
 
-Priority, Size, Executor Type, AI Tool, Role, Write Scope, Forbidden Scope, Base Commit, Parent Issue, Blocked By, Parallel Group, Conflict Risk, Review Agent, and Integration Owner.
+- Priority: P0, P1, P2, P3
+- Size: XS, S, M, L, XL
+- Executor Type: Human, AI, Human + AI
+- AI Tool: None, Codex, Claude Code, Kiro, Multiple
+- Role: Planner, Architect, Implementer, Reviewer, Tester, Integrator
+- Write Scope
+- Forbidden Scope
+- Base Commit
+- Parent Issue
+- Blocked By
+- Parallel Group
+- Conflict Risk
+- Review Agent
+- Integration Owner
 
-Implementation issues must include purpose, background, scope, out of scope, acceptance criteria, technical constraints, verification method, ownership, write scope, and dependencies.
+## Issue Requirements
+
+Implementation issues must include:
+
+- purpose
+- background
+- scope
+- out of scope
+- acceptance criteria
+- technical constraints
+- verification method
+- ownership
+- write scope
+- dependencies
 
 Do not start implementation while an issue is `Inbox` or `Blocked`.
+
+## Standard Adoption Issues
+
+Existing project adoption must be tracked as a dedicated issue, not mixed into a
+feature issue.
+
+Adoption issues must include:
+
+- target repository and default branch
+- selected standard version and commit SHA
+- adoption level: Passive, Guided, or Enforced
+- selected profiles and enabled AI tools
+- existing CI, issue templates, PR templates, CODEOWNERS, and AI instruction
+  files
+- files that must be preserved
+- manual merge work for existing templates or instructions
+- validation commands that can run now
+- TODO items that require foundation follow-up issues
+
+Adoption issue status should progress through:
+
+```text
+Inbox
+  -> Ready
+  -> In Progress
+  -> In Review
+  -> Done
+```
+
+Do not mark adoption `Done` until the adoption pull request is merged and
+remaining foundation gaps are captured as separate issues.
