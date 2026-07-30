@@ -1,0 +1,18 @@
+schema_version: 1
+
+commands:
+  validate:
+    - python scripts/validate-standard.py
+
+  check:
+    - python scripts/validate-standard.py
+
+  format:
+    status: not-required
+    reason: Documentation-first repository.
+
+  lint:
+    - python scripts/validate-standard.py
+
+  test:
+    - python scripts/validate-standard.py

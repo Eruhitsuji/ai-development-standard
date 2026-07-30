@@ -1,0 +1,19 @@
+# Project Agent Instructions
+
+Read and follow:
+
+1. `.ai/managed/core/INDEX.md`
+2. relevant `.ai/managed/profiles/**/INDEX.md`
+3. `.ai/project/PROJECT.yml`
+4. `.ai/project/RULES.md`
+5. `.ai/project/COMMANDS.yml`
+6. the assigned GitHub Issue and task contract
+
+## Ownership
+
+- `.ai/managed/**` is generated from the common standard.
+- Do not edit `.ai/managed/**` during normal feature development.
+- Project-specific rules belong under `.ai/project/**`.
+- Standard updates require a dedicated standard-update task.
+
+Do not start implementation unless a GitHub Issue exists, acceptance criteria are defined, the task is not blocked, write scope is defined, and a dedicated branch or worktree is used.

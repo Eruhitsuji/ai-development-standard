@@ -1,0 +1,30 @@
+schema_version: 1
+
+project:
+  id: example-project
+  name: Example Project
+  type: application
+  lifecycle: initializing
+
+repository:
+  owner: Eruhitsuji
+  name: example-project
+  default_branch: main
+
+technology:
+  languages: []
+  runtimes: {}
+  package_manager:
+    type: TODO
+
+ai:
+  enabled_tools:
+    - codex
+    - claude-code
+    - kiro
+
+  default_roles:
+    planner: human
+    implementer: codex
+    reviewer: claude-code
+    integrator: human

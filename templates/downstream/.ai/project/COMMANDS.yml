@@ -1,0 +1,21 @@
+schema_version: 1
+
+commands:
+  setup:
+    status: TODO
+    values: []
+  format:
+    status: TODO
+    values: []
+  lint:
+    status: TODO
+    values: []
+  unit_test:
+    status: TODO
+    values: []
+  integration_test:
+    status: TODO
+    values: []
+  full_check:
+    status: TODO
+    values: []

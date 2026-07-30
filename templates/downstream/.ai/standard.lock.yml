@@ -1,0 +1,16 @@
+schema_version: 1
+
+standard:
+  repository: Eruhitsuji/ai-development-standard
+  version: 0.1.0
+  commit: REPLACE_WITH_RELEASE_COMMIT_SHA
+
+profiles:
+  - core
+
+adapter_versions:
+  codex: 0.1.0
+  claude_code: 0.1.0
+  kiro: 0.1.0
+
+installed_at: REPLACE_WITH_ISO_DATE

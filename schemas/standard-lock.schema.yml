@@ -1,0 +1,20 @@
+schema_version: 1
+
+required:
+  - standard.repository
+  - standard.version
+  - standard.commit
+  - profiles
+  - adapter_versions
+
+fields:
+  standard.repository:
+    type: string
+  standard.version:
+    type: string
+  standard.commit:
+    type: string
+  profiles:
+    type: list
+  adapter_versions:
+    type: map

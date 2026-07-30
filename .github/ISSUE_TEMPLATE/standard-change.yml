@@ -1,0 +1,37 @@
+name: Standard Change
+description: Propose a change to the common standard.
+title: "[Standard]: "
+labels:
+  - type:standard-change
+  - status:inbox
+body:
+  - type: textarea
+    id: target
+    attributes:
+      label: Target standard area
+      description: Which standards, profiles, adapters, templates, or scripts change?
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason
+    validations:
+      required: true
+  - type: dropdown
+    id: versioning
+    attributes:
+      label: Expected versioning impact
+      options:
+        - Patch
+        - Minor
+        - Major
+        - Unknown
+    validations:
+      required: true
+  - type: textarea
+    id: downstream-impact
+    attributes:
+      label: Downstream impact
+    validations:
+      required: true

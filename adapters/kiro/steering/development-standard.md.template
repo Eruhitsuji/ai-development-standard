@@ -1,0 +1,10 @@
+# Development Standard
+
+Follow:
+
+- `.ai/managed/core/INDEX.md`
+- `.ai/managed/core/TASK_MANAGEMENT.md`
+- `.ai/managed/core/MULTI_AGENT_DEVELOPMENT.md`
+- `.ai/project/RULES.md`
+
+Do not edit `.ai/managed/**` during normal development.

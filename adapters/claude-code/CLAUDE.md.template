@@ -1,0 +1,14 @@
+# Claude Code Project Instructions
+
+@AGENTS.md
+@.ai/managed/core/INDEX.md
+@.ai/project/PROJECT.yml
+@.ai/project/RULES.md
+@.ai/project/COMMANDS.yml
+
+## Claude Code Specific Rules
+
+- Use Plan Mode before modifying multiple modules or public interfaces.
+- Ask before destructive operations, dependency-wide migrations, or standard updates.
+- Prefer repository commands over manually assembled commands.
+- Do not commit or push unless explicitly instructed.

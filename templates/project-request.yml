@@ -1,0 +1,39 @@
+schema_version: 1
+
+repository:
+  owner: Eruhitsuji
+  name: example-project
+  description: Example project initialized from the AI development standard.
+  visibility: private
+  default_branch: main
+
+project:
+  display_name: Example Project
+  type: application
+  lifecycle: initializing
+
+standard:
+  repository: Eruhitsuji/ai-development-standard
+  version: 0.1.0
+  commit: REPLACE_WITH_RELEASE_COMMIT_SHA
+
+profiles:
+  - core
+  - python
+
+ai_tools:
+  codex: true
+  claude_code: true
+  kiro: true
+
+task_management:
+  github_issues: true
+  github_projects: true
+  project_template: AI Development Project
+
+branch_policy:
+  require_pull_request: true
+  required_approvals: 1
+  require_code_owner_review: true
+  require_ci: true
+  allow_force_push: false

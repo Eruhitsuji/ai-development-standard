@@ -1,0 +1,28 @@
+schema_version: 1
+
+project:
+  id: ai-development-standard
+  name: AI Development Standard
+  type: standard-repository
+  lifecycle: active
+
+repository:
+  owner: Eruhitsuji
+  name: ai-development-standard
+  default_branch: main
+
+standard:
+  role: upstream-source
+  current_version_file: VERSION
+
+ai:
+  enabled_tools:
+    - codex
+    - claude-code
+    - kiro
+
+  default_roles:
+    planner: human
+    implementer: codex
+    reviewer: claude-code
+    integrator: human

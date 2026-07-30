@@ -1,0 +1,30 @@
+name: New Project Request
+description: Request a new downstream project initialized from this standard.
+title: "[Project]: "
+labels:
+  - type:project-request
+  - status:inbox
+body:
+  - type: input
+    id: repo-name
+    attributes:
+      label: Repository name
+      placeholder: example-project
+    validations:
+      required: true
+  - type: dropdown
+    id: visibility
+    attributes:
+      label: Visibility
+      options:
+        - private
+        - public
+        - internal
+    validations:
+      required: true
+  - type: textarea
+    id: owners
+    attributes:
+      label: Owners and reviewers
+    validations:
+      required: true

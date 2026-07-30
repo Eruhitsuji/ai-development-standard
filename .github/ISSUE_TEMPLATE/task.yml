@@ -1,0 +1,36 @@
+name: Task
+description: Implementation, validation, documentation, or maintenance task.
+title: "[Task]: "
+labels:
+  - type:task
+  - status:inbox
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      value: |
+        - [ ]
+        - [ ]
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification
+      value: |
+        - [ ] python scripts/validate-standard.py
+    validations:
+      required: true
