@@ -16,6 +16,7 @@ Closes #
 ## Process and Quality Viewpoints
 
 - Lifecycle phase:
+- Development method:
 - Review viewpoints:
 - Test viewpoints:
 - Coding viewpoints:
@@ -44,5 +45,6 @@ Insert actual commands and results.
 - Implementing executor:
 - Reviewing executor:
 - Human-reviewed areas:
+- Tool-specific limitations or unavailable context:
 
 ## Remaining Risks

@@ -12,6 +12,12 @@ project:
   type: application
   lifecycle: initializing
 
+process:
+  primary_method: adaptive-default
+  quality_gate_model: w-model
+  planning_cadence: TODO
+  release_cadence: TODO
+
 standard:
   repository: Eruhitsuji/ai-development-standard
   version: 0.1.0
@@ -25,6 +31,16 @@ ai_tools:
   codex: true
   claude_code: true
   kiro: true
+
+guidance:
+  beginner_support: true
+  next_action_support: true
+
+owners:
+  maintainers:
+    - Eruhitsuji
+  developers: []
+  reviewers: []
 
 task_management:
   github_issues: true

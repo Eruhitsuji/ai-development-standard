@@ -29,6 +29,8 @@ Use this repository as the canonical source for:
 - Codex, Claude Code, and Kiro adapter templates
 - new project initialization flow
 - existing project adoption flow
+- next-action guidance for users who do not know what to do next
+- development method selection beyond only agile or W-model
 - standard update flow
 - Issue and pull request templates
 - GitHub Actions starter workflows
@@ -72,7 +74,13 @@ scripts/                 Bootstrap and validation helpers
 
 The shared baseline defines these project-independent quality areas:
 
-- process: agile delivery loop with W-model quality gates
+- process: method-independent lifecycle with explicit quality gates
+- methods: Kanban, Scrum, Scrumban, Waterfall, V-model, W-model, XP, Lean,
+  dual-track agile, Shape Up, Spiral, prototype/PoC, trunk-based development,
+  release train, maintenance, and regulated flows
+- guidance: AI-assisted current-state diagnosis and next-action recommendation
+- AI compatibility: shared execution contract across Codex, Claude Code, Kiro,
+  and future tools
 - review: requirements, design, code, test, security, integration, and release
   viewpoints
 - testing: acceptance, normal path, edge, error, compatibility, security, data,
@@ -140,6 +148,23 @@ foundation Epic.
 6. Merge after the project owner and standard owner approve.
 
 See [docs/flows/STANDARD_UPDATE.md](docs/flows/STANDARD_UPDATE.md).
+
+## When You Do Not Know What To Do Next
+
+Ask the AI "what should I do next?" The AI should inspect the current project
+state, classify the phase, and recommend the next one to three actions using
+`standards/core/NEXT_ACTION.md`.
+
+Typical outputs are:
+
+- a guidance answer
+- a refined GitHub Issue
+- a process decision
+- an implementation plan
+- a review or test plan
+- a blocker to resolve
+
+Use `templates/next-action-report.md` for longer recommendations.
 
 ## Validation
 

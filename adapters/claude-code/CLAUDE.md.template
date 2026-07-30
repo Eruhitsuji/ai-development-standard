@@ -3,8 +3,13 @@
 @AGENTS.md
 @.ai/managed/core/INDEX.md
 @.ai/managed/core/PROCESS.md
+@.ai/managed/core/DEVELOPMENT_METHODS.md
+@.ai/managed/core/NEXT_ACTION.md
+@.ai/managed/core/AI_TOOL_COMPATIBILITY.md
 @.ai/managed/core/REVIEW.md
 @.ai/project/PROJECT.yml
+@.ai/project/METHOD.yml
+@.ai/project/GUIDANCE.yml
 @.ai/project/RULES.md
 @.ai/project/COMMANDS.yml
 

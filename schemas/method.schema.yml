@@ -1,0 +1,25 @@
+schema_version: 1
+
+required:
+  - primary_method
+  - quality_gate_model
+  - allowed_methods
+
+fields:
+  primary_method:
+    type: string
+  quality_gate_model:
+    type: string
+  planning_cadence:
+    type: string
+  release_cadence:
+    type: string
+  allowed_methods:
+    type: list
+  issue_override.allowed:
+    type: boolean
+  issue_override.requires_reason:
+    type: boolean
+  issue_override.requires_owner_approval:
+    type: boolean
+

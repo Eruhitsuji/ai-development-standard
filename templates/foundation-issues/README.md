@@ -13,6 +13,10 @@ development starts.
   template.
 - `existing-project-adoption.md`: foundation issue set for repositories adopting
   the standard after code and workflows already exist.
+- `../project-discovery.md`: use when the user does not know what should be
+  built or configured first.
+- `../process-selection.md`: use when choosing or changing the project method.
+- `../next-action-report.md`: use when an AI answers what should happen next.
 
 Each generated issue should still receive a concrete owner, executor, write
 scope, verification method, and acceptance criteria before implementation.

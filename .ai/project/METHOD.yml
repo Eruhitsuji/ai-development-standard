@@ -1,0 +1,18 @@
+schema_version: 1
+
+primary_method: adaptive-default
+quality_gate_model: w-model
+planning_cadence: continuous
+release_cadence: maintainer-decided
+
+allowed_methods:
+  - adaptive-default
+  - kanban
+  - maintenance-flow
+  - regulated-or-audit-heavy-flow
+
+issue_override:
+  allowed: true
+  requires_reason: true
+  requires_owner_approval: true
+

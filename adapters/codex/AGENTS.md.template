@@ -4,12 +4,17 @@ Read and follow:
 
 1. `.ai/managed/core/INDEX.md`
 2. `.ai/managed/core/PROCESS.md`
-3. `.ai/managed/core/REVIEW.md`
-4. relevant `.ai/managed/profiles/**/INDEX.md`
-5. `.ai/project/PROJECT.yml`
-6. `.ai/project/RULES.md`
-7. `.ai/project/COMMANDS.yml`
-8. the assigned GitHub Issue and task contract
+3. `.ai/managed/core/DEVELOPMENT_METHODS.md`
+4. `.ai/managed/core/NEXT_ACTION.md`
+5. `.ai/managed/core/AI_TOOL_COMPATIBILITY.md`
+6. `.ai/managed/core/REVIEW.md`
+7. relevant `.ai/managed/profiles/**/INDEX.md`
+8. `.ai/project/PROJECT.yml`
+9. `.ai/project/METHOD.yml`
+10. `.ai/project/GUIDANCE.yml`
+11. `.ai/project/RULES.md`
+12. `.ai/project/COMMANDS.yml`
+13. the assigned GitHub Issue and task contract
 
 ## Ownership
 
@@ -33,3 +38,7 @@ Use repository commands from `.ai/project/COMMANDS.yml`.
 For every implementation task, identify applicable process phase, review
 viewpoints, test viewpoints, coding viewpoints, and security viewpoints before
 changing files.
+
+When the user asks what to do next, follow `.ai/managed/core/NEXT_ACTION.md`:
+inspect project state, classify the current phase, and recommend the next one
+to three actions.

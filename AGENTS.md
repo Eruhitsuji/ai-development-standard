@@ -9,13 +9,18 @@ Read these before changing the standard:
 1. `README.md`
 2. `standards/core/INDEX.md`
 3. `standards/core/PROCESS.md`
-4. `standards/core/REVIEW.md`
-5. `docs/flows/OVERALL_FLOW.md`
-6. `docs/flows/NEW_PROJECT.md`
-7. `docs/flows/EXISTING_PROJECT_ADOPTION.md`
-8. `docs/flows/STANDARD_UPDATE.md`
-9. `.ai/project/PROJECT.yml`
-10. `.ai/project/COMMANDS.yml`
+4. `standards/core/DEVELOPMENT_METHODS.md`
+5. `standards/core/NEXT_ACTION.md`
+6. `standards/core/AI_TOOL_COMPATIBILITY.md`
+7. `standards/core/REVIEW.md`
+8. `docs/flows/OVERALL_FLOW.md`
+9. `docs/flows/NEW_PROJECT.md`
+10. `docs/flows/EXISTING_PROJECT_ADOPTION.md`
+11. `docs/flows/STANDARD_UPDATE.md`
+12. `.ai/project/PROJECT.yml`
+13. `.ai/project/METHOD.yml`
+14. `.ai/project/GUIDANCE.yml`
+15. `.ai/project/COMMANDS.yml`
 
 ## Instruction Priority
 
@@ -57,7 +62,7 @@ During implementation:
 - Avoid unrelated refactoring.
 - Keep adapter templates aligned with core standard changes.
 - Update schemas, docs, scripts, and templates together when contracts change.
-- Preserve the agile + W-model phase gates unless explicitly changing the
+- Preserve method-independent lifecycle gates unless explicitly changing the
   process standard.
 
 After implementation:

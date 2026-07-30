@@ -18,6 +18,13 @@ REQUIRED_FILES = [
     "CHANGELOG.md",
     "AGENTS.md",
     "CLAUDE.md",
+    ".ai/project/METHOD.yml",
+    ".ai/project/GUIDANCE.yml",
+    "schemas/project.schema.yml",
+    "schemas/standard-lock.schema.yml",
+    "schemas/task-contract.schema.yml",
+    "schemas/method.schema.yml",
+    "schemas/guidance.schema.yml",
     "docs/flows/OVERALL_FLOW.md",
     "docs/flows/NEW_PROJECT.md",
     "docs/flows/EXISTING_PROJECT_ADOPTION.md",
@@ -26,6 +33,9 @@ REQUIRED_FILES = [
     "standards/core/INDEX.md",
     "standards/core/DEVELOPMENT.md",
     "standards/core/PROCESS.md",
+    "standards/core/DEVELOPMENT_METHODS.md",
+    "standards/core/NEXT_ACTION.md",
+    "standards/core/AI_TOOL_COMPATIBILITY.md",
     "standards/core/REVIEW.md",
     "standards/core/CODING.md",
     "standards/core/TESTING.md",
@@ -45,13 +55,27 @@ REQUIRED_FILES = [
     "adapters/kiro/steering/development-standard.md.template",
     "templates/project-request.yml",
     "templates/existing-project-adoption.yml",
+    "templates/project-discovery.md",
+    "templates/process-selection.md",
+    "templates/next-action-report.md",
+    "templates/task-contract.md",
+    "templates/implementation-plan.md",
+    "templates/review-report.md",
+    "templates/test-plan.md",
+    "templates/security-review.md",
+    "templates/investigation-report.md",
+    "templates/handoff.md",
     "templates/foundation-issues/README.md",
     "templates/foundation-issues/new-project.md",
     "templates/foundation-issues/existing-project-adoption.md",
     "templates/downstream/.ai/standard.lock.yml",
     "templates/downstream/.ai/project/PROJECT.yml",
+    "templates/downstream/.ai/project/METHOD.yml",
+    "templates/downstream/.ai/project/GUIDANCE.yml",
     "templates/downstream/.ai/project/COMMANDS.yml",
     "templates/github/ISSUE_TEMPLATE/standard-adoption.yml",
+    "templates/github/ISSUE_TEMPLATE/guidance.yml",
+    "templates/github/ISSUE_TEMPLATE/process-decision.yml",
     ".github/PULL_REQUEST_TEMPLATE.md",
     ".github/workflows/validate-standard.yml",
     "scripts/plan-adoption.py",
@@ -111,6 +135,13 @@ def check_adapter_consistency(errors):
             errors.append(f"{label} does not reference .ai/managed")
         if ".ai/project" not in content:
             errors.append(f"{label} does not reference .ai/project")
+        for standard in [
+            "DEVELOPMENT_METHODS.md",
+            "NEXT_ACTION.md",
+            "AI_TOOL_COMPATIBILITY.md",
+        ]:
+            if standard not in content:
+                errors.append(f"{label} does not reference {standard}")
 
 
 def main() -> int:

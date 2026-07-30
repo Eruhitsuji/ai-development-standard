@@ -6,6 +6,8 @@ required:
   - repository.owner
   - repository.name
   - ai.enabled_tools
+  - process.primary_method
+  - guidance.next_action_support
 
 fields:
   project.id:
@@ -18,3 +20,7 @@ fields:
     type: string
   ai.enabled_tools:
     type: list
+  process.primary_method:
+    type: string
+  guidance.next_action_support:
+    type: boolean

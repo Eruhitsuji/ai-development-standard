@@ -1,9 +1,11 @@
 # Process Standard
 
-This standard uses an agile delivery loop with W-model quality gates.
+This standard defines the method-independent lifecycle that every project must
+be able to map to its selected development method.
 
-Agile is used for incremental planning and delivery. W-model thinking is used
-to connect each development phase with a matching verification phase.
+If a project has not selected a method, use the default from
+`DEVELOPMENT_METHODS.md`: small iterations, Kanban flow, and W-model quality
+gates.
 
 ## Lifecycle
 
@@ -38,6 +40,17 @@ gates must not be skipped for implementation work.
 | Release | Confirm readiness, changelog, migration notes | Release PR/tag or deployment record | Release owner approves |
 | Retrospective | Capture process or standard improvements | Follow-up issues | Improvements are tracked |
 
+## Method Mapping
+
+Projects may use agile, Kanban, Scrum, Waterfall, V-model, W-model, XP, Lean,
+Shape Up, Spiral, prototype, maintenance, release-train, or regulated workflows.
+
+Each selected method must still map work to the lifecycle above. The method may
+change cadence, artifacts, and approval depth, but it must not remove
+traceability, review, verification, or ownership.
+
+See `DEVELOPMENT_METHODS.md`.
+
 ## W-Model Mapping
 
 | Development Side | Verification Side |
@@ -66,3 +79,10 @@ gates must not be skipped for implementation work.
 | Implementation | Implement scoped changes and tests | Scope control and final responsibility |
 | Review | First-pass review and test gap detection | Final approval |
 | Release | Draft notes and checklists | Release decision |
+
+## Next Action Support
+
+When the user asks what to do next, follow `NEXT_ACTION.md`. The AI should
+classify the current state, cite the evidence it inspected, and recommend the
+next one to three actions instead of asking the user to understand the whole
+process first.

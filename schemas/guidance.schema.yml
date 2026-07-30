@@ -1,0 +1,28 @@
+schema_version: 1
+
+required:
+  - next_action.default_response_style
+  - next_action.max_recommended_actions
+  - next_action.inspect_sources
+  - beginner_support.recommend_one_default_path
+
+fields:
+  next_action.default_response_style:
+    type: string
+  next_action.max_recommended_actions:
+    type: integer
+  next_action.inspect_sources:
+    type: list
+  next_action.prefer:
+    type: list
+  next_action.output_fields:
+    type: list
+  beginner_support.ask_minimum_questions:
+    type: boolean
+  beginner_support.explain_terms_when_first_used:
+    type: boolean
+  beginner_support.recommend_one_default_path:
+    type: boolean
+  beginner_support.avoid_tool_specific_detail_unless_needed:
+    type: boolean
+

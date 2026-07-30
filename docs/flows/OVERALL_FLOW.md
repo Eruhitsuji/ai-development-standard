@@ -7,6 +7,10 @@ This standard coordinates four connected workflows:
 3. executing normal development
 4. updating the common standard
 
+AI tools also provide a guidance workflow for users who ask what to do next.
+That workflow is defined in `standards/core/NEXT_ACTION.md` and may produce an
+issue, process decision, implementation plan, review plan, or test plan.
+
 ## System Overview
 
 ```text
@@ -52,6 +56,10 @@ Human developers and AI tools use the same task and isolation model. The
 difference is responsibility: humans own requirements, approval, and final
 judgment; AI tools assist with planning, implementation, verification, and
 first-pass review.
+
+AI tool differences are handled by adapters. The common behavior is defined in
+`standards/core/AI_TOOL_COMPATIBILITY.md`; Codex, Claude Code, and Kiro entry
+files must point back to the same common and project-specific sources.
 
 ## Adoption Paths
 
