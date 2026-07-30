@@ -12,9 +12,10 @@ Read these before changing the standard:
 4. `standards/core/REVIEW.md`
 5. `docs/flows/OVERALL_FLOW.md`
 6. `docs/flows/NEW_PROJECT.md`
-7. `docs/flows/STANDARD_UPDATE.md`
-8. `.ai/project/PROJECT.yml`
-9. `.ai/project/COMMANDS.yml`
+7. `docs/flows/EXISTING_PROJECT_ADOPTION.md`
+8. `docs/flows/STANDARD_UPDATE.md`
+9. `.ai/project/PROJECT.yml`
+10. `.ai/project/COMMANDS.yml`
 
 ## Instruction Priority
 
