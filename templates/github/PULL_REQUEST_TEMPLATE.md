@@ -4,12 +4,14 @@
 
 Closes #
 
-## Standard Change
+## Changes
 
-- Affected areas:
-- Versioning impact: Patch / Minor / Major / None
-- Downstream impact:
-- Migration required:
+## Out of Scope
+
+## Acceptance Criteria
+
+- [ ] Issue acceptance criteria are satisfied
+- [ ] No unrelated work is included
 
 ## Process and Quality Viewpoints
 
@@ -19,13 +21,13 @@ Closes #
 - Coding viewpoints:
 - Security viewpoints:
 
-## Changes
-
-## Out of Scope
-
 ## Verification
 
-- [ ] `python scripts/validate-standard.py`
+- [ ] Format
+- [ ] Lint
+- [ ] Unit tests
+- [ ] Integration tests
+- [ ] Manual verification
 
 Commands and results:
 

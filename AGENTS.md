@@ -8,11 +8,13 @@ Read these before changing the standard:
 
 1. `README.md`
 2. `standards/core/INDEX.md`
-3. `docs/flows/OVERALL_FLOW.md`
-4. `docs/flows/NEW_PROJECT.md`
-5. `docs/flows/STANDARD_UPDATE.md`
-6. `.ai/project/PROJECT.yml`
-7. `.ai/project/COMMANDS.yml`
+3. `standards/core/PROCESS.md`
+4. `standards/core/REVIEW.md`
+5. `docs/flows/OVERALL_FLOW.md`
+6. `docs/flows/NEW_PROJECT.md`
+7. `docs/flows/STANDARD_UPDATE.md`
+8. `.ai/project/PROJECT.yml`
+9. `.ai/project/COMMANDS.yml`
 
 ## Instruction Priority
 
@@ -29,6 +31,15 @@ When instructions conflict, follow this order:
 
 Do not silently resolve material conflicts. Report them before proceeding.
 
+## Repository Ownership Rules
+
+- `standards/**`, `agents/**`, `adapters/**`, `schemas/**`, and `scripts/**`
+  are upstream standard source files.
+- `templates/downstream/.ai/managed/**` represents generated downstream output.
+- Project-specific downstream rules must go under `.ai/project/**`, not
+  `.ai/managed/**`.
+- Changes to standard behavior require a changelog entry and versioning decision.
+
 ## Required Workflow
 
 Before implementation:
@@ -37,6 +48,16 @@ Before implementation:
 2. Inspect related standard files and templates.
 3. Decide whether the change is patch, minor, or major.
 4. Identify downstream compatibility impact.
+5. Identify affected process, review, test, coding, and security viewpoints.
+
+During implementation:
+
+- Make the smallest coherent change.
+- Avoid unrelated refactoring.
+- Keep adapter templates aligned with core standard changes.
+- Update schemas, docs, scripts, and templates together when contracts change.
+- Preserve the agile + W-model phase gates unless explicitly changing the
+  process standard.
 
 After implementation:
 
@@ -47,4 +68,10 @@ After implementation:
 
 ## Prohibited Actions
 
-Do not weaken security requirements, edit generated snapshots as upstream source, invent project-specific rules inside common standards, or claim validation passed unless it was executed.
+Do not:
+
+- weaken security requirements without explicit approval
+- edit downstream generated snapshots as if they were the upstream source
+- invent project-specific rules inside common standards
+- claim validation passed unless it was executed
+- force-push or rewrite another contributor's branch without approval

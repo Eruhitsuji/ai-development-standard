@@ -1,10 +1,13 @@
 # Core Standard Index
 
-Core standards are mandatory for every downstream project unless a rule is explicitly marked overridable and the project records an approved exception.
+Core standards are mandatory for every downstream project unless a rule is
+explicitly marked overridable and the project records an approved exception.
 
 ## Documents
 
 - `DEVELOPMENT.md`: implementation quality and change control
+- `PROCESS.md`: lifecycle, W-model/agile hybrid flow, and phase gates
+- `REVIEW.md`: review types, required viewpoints, and approval rules
 - `CODING.md`: coding conventions and maintainability
 - `TESTING.md`: verification strategy and reporting
 - `SECURITY.md`: secrets, input handling, and security review
@@ -25,3 +28,22 @@ Downstream projects must not weaken these requirements:
 - no final approval by the same AI that implemented the change
 - no write-scope violations during parallel development
 - no claim that checks passed unless they were executed
+
+## Standard Development Model
+
+Downstream projects use an agile delivery loop with W-model quality gates.
+
+```text
+Plan
+  -> Requirements
+  -> Design
+  -> Implementation
+  -> Developer verification
+  -> Review
+  -> Integration verification
+  -> Release decision
+  -> Retrospective and standard improvement
+```
+
+Each phase must define its expected input, output, review viewpoint, and test
+viewpoint. The phase can be lightweight, but it must be explicit.

@@ -1,5 +1,5 @@
-name: Task
-description: Implementation, validation, documentation, or maintenance task.
+name: Development Task
+description: Implementation, testing, documentation, or maintenance work.
 title: "[Task]: "
 labels:
   - type:task
@@ -27,14 +27,6 @@ body:
     validations:
       required: true
   - type: textarea
-    id: verification
-    attributes:
-      label: Verification
-      value: |
-        - [ ] python scripts/validate-standard.py
-    validations:
-      required: true
-  - type: textarea
     id: quality-viewpoints
     attributes:
       label: Process and quality viewpoints
@@ -44,5 +36,39 @@ body:
         Test viewpoints:
         Coding viewpoints:
         Security viewpoints:
+    validations:
+      required: true
+  - type: dropdown
+    id: executor-type
+    attributes:
+      label: Executor type
+      options:
+        - Human
+        - AI
+        - Human + AI
+    validations:
+      required: true
+  - type: dropdown
+    id: ai-tool
+    attributes:
+      label: AI tool
+      options:
+        - None
+        - Codex
+        - Claude Code
+        - Kiro
+        - Multiple
+    validations:
+      required: true
+  - type: textarea
+    id: contract
+    attributes:
+      label: Task contract
+      value: |
+        Write scope:
+        Forbidden scope:
+        Blocked by:
+        Parallel with:
+        Verification:
     validations:
       required: true

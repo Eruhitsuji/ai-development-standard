@@ -1,0 +1,68 @@
+# Process Standard
+
+This standard uses an agile delivery loop with W-model quality gates.
+
+Agile is used for incremental planning and delivery. W-model thinking is used
+to connect each development phase with a matching verification phase.
+
+## Lifecycle
+
+```text
+Discovery
+  -> Requirements
+  -> Design
+  -> Task decomposition
+  -> Implementation
+  -> Developer verification
+  -> Review
+  -> Integration verification
+  -> Release
+  -> Retrospective
+```
+
+The process may be executed in short iterations, but the required outputs and
+gates must not be skipped for implementation work.
+
+## Phase Standards
+
+| Phase | Required Work | Output | Gate |
+| --- | --- | --- | --- |
+| Discovery | Clarify problem, users, constraints, and expected value | Issue, brief, or product note | Problem and owner are clear |
+| Requirements | Define scope, out of scope, acceptance criteria, risks | Ready issue or feature spec | Definition of Ready satisfied |
+| Design | Decide architecture, interfaces, data, migration, security approach | Design note or ADR when needed | Impact and contracts are reviewable |
+| Task decomposition | Split work by dependency and write scope | Sub-issues and task contracts | Parallel work is safe |
+| Implementation | Change code/docs only within scope | Branch/worktree and commits | Acceptance criteria addressed |
+| Developer verification | Run local checks and targeted tests | Commands and results | No false pass claims |
+| Review | Review behavior, design, tests, security, compatibility | PR review or review report | Separate party reviewed |
+| Integration verification | Run CI and integration checks against merge target | CI results | Required checks pass |
+| Release | Confirm readiness, changelog, migration notes | Release PR/tag or deployment record | Release owner approves |
+| Retrospective | Capture process or standard improvements | Follow-up issues | Improvements are tracked |
+
+## W-Model Mapping
+
+| Development Side | Verification Side |
+| --- | --- |
+| Requirements | Acceptance tests and user-visible behavior checks |
+| Architecture/design | Architecture review and integration tests |
+| Interface/contracts | Contract tests and compatibility checks |
+| Implementation | Unit tests and static checks |
+| Integration | End-to-end, migration, and release checks |
+
+## Iteration Rules
+
+- Keep iterations small enough that issues can be reviewed independently.
+- Do not begin implementation before the issue meets Definition of Ready.
+- Do not merge before Definition of Done is satisfied.
+- Record newly discovered work as follow-up issues.
+- Update common standards when repeated project-specific rules become reusable.
+
+## AI Use by Phase
+
+| Phase | AI Can Do | Human Must Own |
+| --- | --- | --- |
+| Discovery | Summarize context, draft questions, compare options | Problem framing and priority |
+| Requirements | Draft acceptance criteria and split scope | Final requirements decision |
+| Design | Propose architecture and risks | Architecture approval |
+| Implementation | Implement scoped changes and tests | Scope control and final responsibility |
+| Review | First-pass review and test gap detection | Final approval |
+| Release | Draft notes and checklists | Release decision |
