@@ -11,6 +11,10 @@ repository:
   name: ai-development-standard
   default_branch: main
 
+process:
+  primary_method: adaptive-default
+  quality_gate_model: w-model
+
 standard:
   role: upstream-source
   current_version_file: VERSION
@@ -26,3 +30,7 @@ ai:
     implementer: codex
     reviewer: claude-code
     integrator: human
+
+guidance:
+  beginner_support: true
+  next_action_support: true

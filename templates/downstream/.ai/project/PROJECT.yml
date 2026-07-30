@@ -6,6 +6,10 @@ project:
   type: application
   lifecycle: initializing
 
+process:
+  primary_method: adaptive-default
+  quality_gate_model: w-model
+
 repository:
   owner: Eruhitsuji
   name: example-project
@@ -28,3 +32,7 @@ ai:
     implementer: codex
     reviewer: claude-code
     integrator: human
+
+guidance:
+  beginner_support: true
+  next_action_support: true

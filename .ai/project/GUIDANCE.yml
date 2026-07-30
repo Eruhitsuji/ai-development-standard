@@ -1,0 +1,29 @@
+schema_version: 1
+
+next_action:
+  default_response_style: concise
+  max_recommended_actions: 3
+  inspect_sources:
+    - git_state
+    - standard_files
+    - open_pull_request
+    - validation_status
+    - changelog
+
+  prefer:
+    - finish_existing_standard_pr_before_starting_unrelated_work
+    - preserve_version_until_maintainer_announces_release
+    - add_templates_and_validation_together
+    - keep_tool_adapters_as_entry_points
+
+  output_fields:
+    - current_state
+    - evidence
+    - recommended_next_action
+    - risks_or_blockers
+
+beginner_support:
+  ask_minimum_questions: true
+  recommend_one_default_path: true
+  avoid_tool_specific_detail_unless_needed: true
+

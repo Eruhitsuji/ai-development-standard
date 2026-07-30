@@ -34,6 +34,8 @@ Cancelled
 - Conflict Risk
 - Review Agent
 - Integration Owner
+- Development Method
+- Current Phase
 
 ## Issue Requirements
 
@@ -51,6 +53,39 @@ Implementation issues must include:
 - dependencies
 
 Do not start implementation while an issue is `Inbox` or `Blocked`.
+
+## Guidance Issues
+
+Users may create guidance issues when they do not know what to do next.
+
+Guidance issues are not implementation tasks. They should produce one of these
+outputs:
+
+- refined implementation issue
+- investigation issue
+- process decision issue
+- foundation issue
+- review or test plan
+- recommendation to close as no action
+
+Use `templates/github/ISSUE_TEMPLATE/guidance.yml` when the user needs help
+choosing the next action.
+
+## Process Decision Issues
+
+Use process decision issues when a project, epic, or major task needs to select
+or change its development method.
+
+The decision must record:
+
+- selected method
+- quality gate model
+- planning cadence
+- release cadence
+- reason for selection
+- revisit condition
+
+Use `templates/process-selection.md` for the decision body.
 
 ## Standard Adoption Issues
 
