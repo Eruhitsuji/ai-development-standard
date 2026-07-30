@@ -1,0 +1,22 @@
+schema_version: 1
+
+required:
+  - executor
+  - role
+  - write_scope
+  - acceptance_criteria
+  - verification
+
+fields:
+  executor:
+    type: string
+  role:
+    type: string
+  write_scope:
+    type: list
+  forbidden_scope:
+    type: list
+  acceptance_criteria:
+    type: list
+  verification:
+    type: list
