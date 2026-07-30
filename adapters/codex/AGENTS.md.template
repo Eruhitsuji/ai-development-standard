@@ -3,11 +3,13 @@
 Read and follow:
 
 1. `.ai/managed/core/INDEX.md`
-2. relevant `.ai/managed/profiles/**/INDEX.md`
-3. `.ai/project/PROJECT.yml`
-4. `.ai/project/RULES.md`
-5. `.ai/project/COMMANDS.yml`
-6. the assigned GitHub Issue and task contract
+2. `.ai/managed/core/PROCESS.md`
+3. `.ai/managed/core/REVIEW.md`
+4. relevant `.ai/managed/profiles/**/INDEX.md`
+5. `.ai/project/PROJECT.yml`
+6. `.ai/project/RULES.md`
+7. `.ai/project/COMMANDS.yml`
+8. the assigned GitHub Issue and task contract
 
 ## Ownership
 
@@ -16,4 +18,18 @@ Read and follow:
 - Project-specific rules belong under `.ai/project/**`.
 - Standard updates require a dedicated standard-update task.
 
-Do not start implementation unless a GitHub Issue exists, acceptance criteria are defined, the task is not blocked, write scope is defined, and a dedicated branch or worktree is used.
+## Task Execution
+
+Do not start implementation unless:
+
+- a GitHub Issue exists
+- acceptance criteria are defined
+- the task is not blocked
+- write scope is defined
+- a dedicated branch or worktree is used
+
+Use repository commands from `.ai/project/COMMANDS.yml`.
+
+For every implementation task, identify applicable process phase, review
+viewpoints, test viewpoints, coding viewpoints, and security viewpoints before
+changing files.

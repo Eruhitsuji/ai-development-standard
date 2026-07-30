@@ -3,7 +3,11 @@
 ## 0.1.0
 
 - Initial AI-driven development standard.
-- Added core standards for development, testing, security, Git/GitHub, task management, multi-agent development, distribution, and update flow.
+- Added core standards for development, testing, security, Git/GitHub, task
+  management, multi-agent development, distribution, and update flow.
+- Added process and review standards for agile + W-model phase gates and
+  review viewpoints.
+- Expanded common review, test, coding, and security viewpoints.
 - Added Codex, Claude Code, and Kiro adapter templates.
 - Added downstream project templates for `.ai/managed` and `.ai/project`.
 - Added GitHub Issue, pull request, and Actions starter templates.

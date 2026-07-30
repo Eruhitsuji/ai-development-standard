@@ -1,0 +1,60 @@
+# Review Standard
+
+Reviews protect behavior, maintainability, security, and integration safety.
+
+Every implementation pull request must receive a review from a separate party.
+AI review is useful as first-pass review, but final approval for protected
+branches should be owned by a human or responsible team.
+
+## Review Types
+
+| Type | Purpose |
+| --- | --- |
+| Requirements review | Confirm the issue is clear, scoped, and testable |
+| Design review | Confirm architecture, contracts, dependencies, and risks |
+| Code review | Confirm implementation correctness and maintainability |
+| Test review | Confirm sufficient and meaningful verification |
+| Security review | Confirm security-sensitive behavior is safe |
+| Integration review | Confirm merge order, shared files, and compatibility |
+| Release review | Confirm readiness, migration notes, and residual risks |
+
+## Pull Request Review Viewpoints
+
+Reviewers must check:
+
+- the change matches the issue and acceptance criteria
+- no unrelated work is included
+- write scope and forbidden scope are respected
+- behavior is correct for normal, edge, and error cases
+- public interfaces and data contracts remain compatible or are documented
+- tests cover meaningful behavior rather than implementation details
+- security-sensitive changes received appropriate scrutiny
+- failure modes, logging, and observability are adequate
+- documentation and migration notes are updated when needed
+- commands and results are actually recorded
+
+## Review Severity
+
+Use this severity model:
+
+- P0: must fix before merge; security, data loss, severe regression, or broken release
+- P1: must fix before merge; correctness, compatibility, or missing required test
+- P2: should fix; maintainability, clarity, or moderate risk
+- P3: optional; style, naming, small cleanup, or follow-up suggestion
+
+## AI Review Rules
+
+- An AI must not be the final approver of its own implementation.
+- AI review should cite concrete files, behavior, and risk.
+- AI review should prioritize bugs and missing tests over style.
+- If the AI cannot verify a claim, it must state that clearly.
+- Human reviewers own final judgment for protected branches.
+
+## Review Completion Criteria
+
+A review is complete when:
+
+- blocking findings are resolved or explicitly accepted by the owner
+- required checks have passed or unrun checks are documented
+- new risks are captured in the PR or follow-up issues
+- the reviewer has inspected the final diff after the latest push
