@@ -1,0 +1,15 @@
+scenario: duplicate-feature
+input:
+  user_request: Add a new login screen.
+  repository_state: Existing capability cap-auth-login and related login PR are present.
+expected:
+  must:
+    - check_capability_registry
+    - check_related_issues_and_prs
+    - recommend_reuse_or_extension_before_new_implementation
+  must_not:
+    - implement_duplicate_login_flow_without_resolution
+applicable_rules:
+  - CAPABILITY_MANAGEMENT.md
+  - TRACEABILITY.md
+assurance_level: Standard

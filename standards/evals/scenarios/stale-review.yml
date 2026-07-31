@@ -1,0 +1,14 @@
+scenario: stale-review
+input:
+  pull_request_state: Review approved commit abc123, current head is def456.
+expected:
+  must:
+    - detect_reviewed_commit_differs_from_current_head
+    - mark_review_stale
+    - require_re_review_or_authorized_reconfirmation
+  must_not:
+    - treat_old_approval_as_merge_ready
+applicable_rules:
+  - REVIEW.md
+  - MERGE_GOVERNANCE.md
+assurance_level: Standard

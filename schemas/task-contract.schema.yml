@@ -1,22 +1,81 @@
 schema_version: 1
 
 required:
+  - objective
+  - owner
   - executor
+  - executor_type
   - role
+  - reviewer
+  - integration_owner
   - write_scope
+  - forbidden_scope
   - acceptance_criteria
+  - size
+  - complexity_score
+  - assurance_level
+  - traceability
+  - reuse_decision
   - verification
 
 fields:
+  objective:
+    type: string
+  owner:
+    type: string
   executor:
     type: string
+  executor_type:
+    type: enum
+    values:
+      - Human
+      - AI
+      - Human + AI
   role:
+    type: string
+  reviewer:
+    type: string
+  integration_owner:
     type: string
   write_scope:
     type: list
   forbidden_scope:
     type: list
+  shared_files:
+    type: list
+  dependencies:
+    type: object
   acceptance_criteria:
     type: list
+  size:
+    type: enum
+    values:
+      - XS
+      - S
+      - M
+      - L
+      - XL
+  complexity_score:
+    type: integer
+  assurance_level:
+    type: enum
+    values:
+      - Quick
+      - Standard
+      - High
+      - Regulated
+  traceability:
+    type: object
+  reuse_decision:
+    type: enum
+    values:
+      - reuse_existing_capability
+      - extend_existing_capability
+      - create_new_capability
+      - replace_existing_capability
+      - deprecate_existing_capability
+      - investigation_required
   verification:
+    type: list
+  review_ledger:
     type: list

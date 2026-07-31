@@ -1,0 +1,19 @@
+schema_version: 1
+
+required_files:
+  - change.yml
+  - requirements.yml
+  - design.md
+  - traceability.yml
+  - decisions.md
+  - verification.yml
+
+change_required_fields:
+  - change
+  - scope
+  - human_approvals_required
+
+requirement_kinds:
+  - ADDED
+  - MODIFIED
+  - REMOVED

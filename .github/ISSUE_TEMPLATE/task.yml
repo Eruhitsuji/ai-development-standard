@@ -6,17 +6,26 @@ labels:
   - status:inbox
 body:
   - type: textarea
-    id: objective
+    id: purpose
     attributes:
-      label: Objective
+      label: Purpose
+      description: What is the single purpose of this task?
     validations:
       required: true
+
   - type: textarea
     id: scope
     attributes:
-      label: Scope
+      label: Scope and out of scope
+      value: |
+        Scope:
+        -
+
+        Out of scope:
+        -
     validations:
       required: true
+
   - type: textarea
     id: acceptance
     attributes:
@@ -26,23 +35,48 @@ body:
         - [ ]
     validations:
       required: true
+
+  - type: textarea
+    id: standard-impact
+    attributes:
+      label: Standard impact
+      value: |
+        Affected standards:
+        Downstream compatibility:
+        Migration:
+        Versioning decision: keep 0.1.0 until formal release / patch / minor / major
+    validations:
+      required: true
+
+  - type: textarea
+    id: task-contract
+    attributes:
+      label: Task contract
+      value: |
+        Owner:
+        Executor type:
+        AI tool:
+        Reviewer:
+        Integration owner:
+        Write scope:
+        Forbidden scope:
+        Shared files:
+        Dependencies:
+        Task size:
+        Complexity score:
+        Assurance level:
+        Traceability:
+        Reuse or duplicate check:
+    validations:
+      required: true
+
   - type: textarea
     id: verification
     attributes:
       label: Verification
       value: |
         - [ ] python scripts/validate-standard.py
-    validations:
-      required: true
-  - type: textarea
-    id: quality-viewpoints
-    attributes:
-      label: Process and quality viewpoints
-      value: |
-        Lifecycle phase:
-        Review viewpoints:
-        Test viewpoints:
-        Coding viewpoints:
-        Security viewpoints:
+        - [ ] python scripts/run-standard-evals.py
+        - [ ] git diff --check
     validations:
       required: true

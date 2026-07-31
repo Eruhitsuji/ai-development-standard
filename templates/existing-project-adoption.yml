@@ -37,6 +37,9 @@ existing_project:
   preserve_existing_issue_templates: true
   preserve_existing_pull_request_template: true
   preserve_existing_agent_instructions: true
+  existing_capability_registry: false
+  existing_traceability_records: false
+  existing_release_or_operations_process: false
 
 inventory:
   languages: []
@@ -63,6 +66,16 @@ known_conflicts:
   workflows: []
   branch_rules: []
   conventions: []
+  duplicate_capabilities: []
+  shared_files: []
+
+governance:
+  default_assurance_level: Standard
+  merge_authority: TODO
+  release_authority: TODO
+  operations_owner: TODO
+  security_exception_approver: TODO
+  data_deletion_approver: TODO
 
 foundation_issues:
   create: true
@@ -70,6 +83,10 @@ foundation_issues:
     - confirm-product-and-owners
     - define-project-commands
     - document-architecture
+    - initialize-capability-registry
+    - initialize-traceability
+    - define-assurance-policy
+    - define-human-approval-owners
     - align-codeowners
     - stabilize-ci
     - enable-branch-protection

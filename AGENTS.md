@@ -12,15 +12,21 @@ Read these before changing the standard:
 4. `standards/core/DEVELOPMENT_METHODS.md`
 5. `standards/core/NEXT_ACTION.md`
 6. `standards/core/AI_TOOL_COMPATIBILITY.md`
-7. `standards/core/REVIEW.md`
-8. `docs/flows/OVERALL_FLOW.md`
-9. `docs/flows/NEW_PROJECT.md`
-10. `docs/flows/EXISTING_PROJECT_ADOPTION.md`
-11. `docs/flows/STANDARD_UPDATE.md`
-12. `.ai/project/PROJECT.yml`
-13. `.ai/project/METHOD.yml`
-14. `.ai/project/GUIDANCE.yml`
-15. `.ai/project/COMMANDS.yml`
+7. `standards/core/ASSURANCE_LEVELS.md`
+8. `standards/core/TASK_DECOMPOSITION.md`
+9. `standards/core/TRACEABILITY.md`
+10. `standards/core/CAPABILITY_MANAGEMENT.md`
+11. `standards/core/REVIEW.md`
+12. `standards/core/MERGE_GOVERNANCE.md`
+13. `standards/core/AI_HUMAN_INTERACTION.md`
+14. `docs/flows/OVERALL_FLOW.md`
+15. `docs/flows/NEW_PROJECT.md`
+16. `docs/flows/EXISTING_PROJECT_ADOPTION.md`
+17. `docs/flows/STANDARD_UPDATE.md`
+18. `.ai/project/PROJECT.yml`
+19. `.ai/project/METHOD.yml`
+20. `.ai/project/GUIDANCE.yml`
+21. `.ai/project/COMMANDS.yml`
 
 ## Instruction Priority
 
@@ -55,6 +61,8 @@ Before implementation:
 3. Decide whether the change is patch, minor, or major.
 4. Identify downstream compatibility impact.
 5. Identify affected process, review, test, coding, and security viewpoints.
+6. Identify affected assurance level, traceability, downstream templates, and
+   validation coverage.
 
 During implementation:
 
@@ -68,9 +76,10 @@ During implementation:
 After implementation:
 
 1. Run `python scripts/validate-standard.py`.
-2. Inspect the complete diff.
-3. Update `CHANGELOG.md` when behavior or files change.
-4. Report verification results and remaining risks.
+2. Run `python scripts/run-standard-evals.py`.
+3. Inspect the complete diff.
+4. Update `CHANGELOG.md` when behavior or files change.
+5. Report verification results and remaining risks.
 
 ## Prohibited Actions
 

@@ -11,15 +11,21 @@ gates.
 
 ```text
 Discovery
-  -> Requirements
-  -> Design
-  -> Task decomposition
+  -> Product Requirements
+  -> System / Software Requirements
+  -> Architecture and Design
+  -> Task Decomposition
   -> Implementation
-  -> Developer verification
-  -> Review
-  -> Integration verification
-  -> Release
-  -> Retrospective
+  -> Developer Verification
+  -> Independent Review
+  -> Integration Verification
+  -> Release Approval
+  -> Deployment
+  -> Operations and Monitoring
+  -> Incident and Maintenance
+  -> Evaluation and Improvement
+  -> Deprecation
+  -> Retirement
 ```
 
 The process may be executed in short iterations, but the required outputs and
@@ -30,15 +36,21 @@ gates must not be skipped for implementation work.
 | Phase | Required Work | Output | Gate |
 | --- | --- | --- | --- |
 | Discovery | Clarify problem, users, constraints, and expected value | Issue, brief, or product note | Problem and owner are clear |
-| Requirements | Define scope, out of scope, acceptance criteria, risks | Ready issue or feature spec | Definition of Ready satisfied |
-| Design | Decide architecture, interfaces, data, migration, security approach | Design note or ADR when needed | Impact and contracts are reviewable |
-| Task decomposition | Split work by dependency and write scope | Sub-issues and task contracts | Parallel work is safe |
+| Product Requirements | Define user needs, scope, out of scope, acceptance criteria, risks | Ready issue or feature spec | Definition of Ready satisfied |
+| System / Software Requirements | Define system constraints, interfaces, data, operations, and compatibility rules | requirements record or contract note | requirements are testable and traceable |
+| Architecture and Design | Decide architecture, interfaces, data, migration, security approach | Design note, ADR, or change package | Impact and contracts are reviewable |
+| Task Decomposition | Split work by dependency and write scope | Sub-issues and task contracts | Parallel work is safe and tasks are XS/S or justified M |
 | Implementation | Change code/docs only within scope | Branch/worktree and commits | Acceptance criteria addressed |
-| Developer verification | Run local checks and targeted tests | Commands and results | No false pass claims |
-| Review | Review behavior, design, tests, security, compatibility | PR review or review report | Separate party reviewed |
-| Integration verification | Run CI and integration checks against merge target | CI results | Required checks pass |
-| Release | Confirm readiness, changelog, migration notes | Release PR/tag or deployment record | Release owner approves |
-| Retrospective | Capture process or standard improvements | Follow-up issues | Improvements are tracked |
+| Developer Verification | Run local checks and targeted tests | Commands and results | No false pass claims |
+| Independent Review | Review behavior, design, tests, security, compatibility | PR review, review report, or review ledger | Separate party reviewed the latest commit |
+| Integration Verification | Run CI and integration checks against merge target | CI results and conflict notes | Required checks pass and merge risks are understood |
+| Release Approval | Confirm readiness, changelog, migration notes | Release PR/tag or deployment record | Release Authority approves |
+| Deployment | Deploy or install the change | Deployment record | Smoke check and rollback path are ready |
+| Operations and Monitoring | Confirm telemetry, runbooks, alerts, SLOs, backup/restore | Operational evidence | Operations Owner accepts readiness |
+| Incident and Maintenance | Triage, mitigate, repair, and verify operational work | Incident or maintenance issue | Incident Commander or owner accepts status |
+| Evaluation and Improvement | Capture process, product, or standard improvements | Follow-up issues or standard-change issue | Improvements are tracked |
+| Deprecation | Plan removal or replacement | Deprecation plan | Compatibility and migration are approved |
+| Retirement | Remove capability or retire system | Retirement record | Users, data, and operations are safe |
 
 ## Method Mapping
 
@@ -50,6 +62,15 @@ change cadence, artifacts, and approval depth, but it must not remove
 traceability, review, verification, or ownership.
 
 See `DEVELOPMENT_METHODS.md`.
+
+See `SPECIFICATION_LIFECYCLE.md` for the complete owner, evidence, gate, and
+next-condition matrix.
+
+## Assurance Mapping
+
+Every change must state its change type and assurance level. The selected
+development method controls cadence, but the assurance level controls evidence,
+review depth, and human approvals. Use `ASSURANCE_LEVELS.md`.
 
 ## W-Model Mapping
 

@@ -1,0 +1,17 @@
+schema_version: 1
+
+required:
+  - default_branch
+  - required_controls
+  - review_freshness
+
+required_controls:
+  - direct_push_prohibited
+  - force_push_prohibited
+  - pull_request_required
+  - related_issue_required
+  - required_ci_must_pass
+  - latest_push_requires_review
+  - stale_approvals_invalid
+  - ai_ruleset_bypass_prohibited
+  - rollback_or_revert_plan_required

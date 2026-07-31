@@ -17,6 +17,20 @@ branches should be owned by a human or responsible team.
 | Security review | Confirm security-sensitive behavior is safe |
 | Integration review | Confirm merge order, shared files, and compatibility |
 | Release review | Confirm readiness, migration notes, and residual risks |
+| Operations review | Confirm monitoring, logging, rollback, runbooks, and incident readiness |
+| Audit review | Confirm traceability, approvals, retained evidence, and exception records |
+
+## Review Stages
+
+Use review repeatedly across the lifecycle:
+
+- pre-implementation review: requirements, design, decomposition, scope, and
+  assurance level
+- implementation review: code, tests, security, compatibility, and evidence
+- integration and merge review: latest commit, CI, shared files, conflicts,
+  rollback, and merge authority
+- release and operations review: release readiness, deployment, monitoring,
+  incident response, deprecation, or retirement when applicable
 
 ## Pull Request Review Viewpoints
 
@@ -32,6 +46,29 @@ Reviewers must check:
 - failure modes, logging, and observability are adequate
 - documentation and migration notes are updated when needed
 - commands and results are actually recorded
+- review freshness is still valid for the current head commit
+
+## Review Ledger
+
+Medium-risk or higher work should record a review ledger entry:
+
+```yaml
+reviewer: ""
+review_type: code
+target_commit: ""
+result: pending
+finding_count: 0
+completed_at: ""
+```
+
+The review is stale when:
+
+```text
+reviewed_commit != current_head_commit
+```
+
+Stale review must be repeated or explicitly reconfirmed by an authorized
+reviewer before merge.
 
 ## Review Severity
 

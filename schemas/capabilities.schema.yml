@@ -1,0 +1,23 @@
+schema_version: 1
+
+required:
+  - capabilities
+
+capability_required_fields:
+  - id
+  - name
+  - summary
+  - status
+  - owner
+  - source_requirements
+  - implementation_locations
+  - tests_or_evidence
+
+unique_fields:
+  - capabilities.id
+
+allowed_status:
+  - proposed
+  - active
+  - deprecated
+  - retired

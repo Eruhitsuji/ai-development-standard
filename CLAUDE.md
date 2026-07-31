@@ -6,7 +6,13 @@
 @standards/core/DEVELOPMENT_METHODS.md
 @standards/core/NEXT_ACTION.md
 @standards/core/AI_TOOL_COMPATIBILITY.md
+@standards/core/ASSURANCE_LEVELS.md
+@standards/core/TASK_DECOMPOSITION.md
+@standards/core/TRACEABILITY.md
+@standards/core/CAPABILITY_MANAGEMENT.md
 @standards/core/REVIEW.md
+@standards/core/MERGE_GOVERNANCE.md
+@standards/core/AI_HUMAN_INTERACTION.md
 @docs/flows/OVERALL_FLOW.md
 @docs/flows/NEW_PROJECT.md
 @docs/flows/EXISTING_PROJECT_ADOPTION.md

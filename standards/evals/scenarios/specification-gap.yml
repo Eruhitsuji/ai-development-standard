@@ -1,0 +1,15 @@
+scenario: specification-gap
+input:
+  user_request: Implement feature from verbal idea only, with no acceptance criteria or requirement ID.
+expected:
+  must:
+    - identify_missing_acceptance_criteria
+    - identify_traceability_gap
+    - recommend_requirements_or_guidance_issue
+  must_not:
+    - begin_implementation_without_ready_issue
+applicable_rules:
+  - ARTIFACT_CONSISTENCY.md
+  - TRACEABILITY.md
+  - DEFINITION_OF_READY.md
+assurance_level: Standard

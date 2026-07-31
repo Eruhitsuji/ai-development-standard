@@ -25,6 +25,14 @@ REQUIRED_FILES = [
     "schemas/task-contract.schema.yml",
     "schemas/method.schema.yml",
     "schemas/guidance.schema.yml",
+    "schemas/context-index.schema.yml",
+    "schemas/capabilities.schema.yml",
+    "schemas/traceability.schema.yml",
+    "schemas/assurance.schema.yml",
+    "schemas/roles.schema.yml",
+    "schemas/merge-policy.schema.yml",
+    "schemas/change-package.schema.yml",
+    "schemas/review-ledger.schema.yml",
     "docs/flows/OVERALL_FLOW.md",
     "docs/flows/NEW_PROJECT.md",
     "docs/flows/EXISTING_PROJECT_ADOPTION.md",
@@ -34,18 +42,43 @@ REQUIRED_FILES = [
     "standards/core/DEVELOPMENT.md",
     "standards/core/PROCESS.md",
     "standards/core/DEVELOPMENT_METHODS.md",
+    "standards/core/SPECIFICATION_LIFECYCLE.md",
+    "standards/core/ARTIFACT_CONSISTENCY.md",
+    "standards/core/ASSURANCE_LEVELS.md",
     "standards/core/NEXT_ACTION.md",
     "standards/core/AI_TOOL_COMPATIBILITY.md",
+    "standards/core/AI_HUMAN_INTERACTION.md",
+    "standards/core/AI_PERMISSIONS.md",
     "standards/core/REVIEW.md",
     "standards/core/CODING.md",
     "standards/core/TESTING.md",
     "standards/core/SECURITY.md",
     "standards/core/GIT_GITHUB.md",
+    "standards/core/MERGE_GOVERNANCE.md",
     "standards/core/TASK_MANAGEMENT.md",
+    "standards/core/TASK_DECOMPOSITION.md",
+    "standards/core/TRACEABILITY.md",
+    "standards/core/CAPABILITY_MANAGEMENT.md",
     "standards/core/MULTI_AGENT_DEVELOPMENT.md",
+    "standards/core/OPERATIONS.md",
+    "standards/core/AUTOMATION_AND_HOOKS.md",
+    "standards/core/KNOWLEDGE_MAINTENANCE.md",
     "standards/core/STANDARD_DISTRIBUTION.md",
+    "standards/core/STANDARD_EVALUATION.md",
     "standards/core/DEFINITION_OF_READY.md",
     "standards/core/DEFINITION_OF_DONE.md",
+    "standards/evals/README.md",
+    "standards/evals/scenarios/task-too-large.yml",
+    "standards/evals/scenarios/duplicate-feature.yml",
+    "standards/evals/scenarios/scope-expansion.yml",
+    "standards/evals/scenarios/unsafe-merge.yml",
+    "standards/evals/scenarios/false-test-claim.yml",
+    "standards/evals/scenarios/destructive-operation.yml",
+    "standards/evals/scenarios/conflicting-instructions.yml",
+    "standards/evals/scenarios/missing-human-approval.yml",
+    "standards/evals/scenarios/stale-review.yml",
+    "standards/evals/scenarios/specification-gap.yml",
+    "standards/evals/scenarios/algorithm-overengineering.yml",
     "agents/roles/orchestrator.md",
     "agents/roles/implementer.md",
     "agents/roles/reviewer.md",
@@ -64,6 +97,12 @@ REQUIRED_FILES = [
     "templates/test-plan.md",
     "templates/security-review.md",
     "templates/investigation-report.md",
+    "templates/algorithm-decision.md",
+    "templates/operations-change.md",
+    "templates/incident-report.md",
+    "templates/deprecation-plan.md",
+    "templates/review-ledger.md",
+    "templates/release-checklist.md",
     "templates/handoff.md",
     "templates/foundation-issues/README.md",
     "templates/foundation-issues/new-project.md",
@@ -73,12 +112,35 @@ REQUIRED_FILES = [
     "templates/downstream/.ai/project/METHOD.yml",
     "templates/downstream/.ai/project/GUIDANCE.yml",
     "templates/downstream/.ai/project/COMMANDS.yml",
+    "templates/downstream/.ai/project/CONTEXT_INDEX.yml",
+    "templates/downstream/.ai/project/CAPABILITIES.yml",
+    "templates/downstream/.ai/project/TRACEABILITY.yml",
+    "templates/downstream/.ai/project/ASSURANCE.yml",
+    "templates/downstream/.ai/project/ROLES.yml",
+    "templates/downstream/.ai/project/MERGE_POLICY.yml",
+    "templates/downstream/.ai/project/PERMISSIONS.yml",
+    "templates/downstream/.ai/project/LIFECYCLE.yml",
+    "templates/downstream/.ai/project/changes/README.md",
+    "templates/downstream/.ai/project/changes/_template/change.yml",
+    "templates/downstream/.ai/project/changes/_template/requirements.yml",
+    "templates/downstream/.ai/project/changes/_template/design.md",
+    "templates/downstream/.ai/project/changes/_template/traceability.yml",
+    "templates/downstream/.ai/project/changes/_template/decisions.md",
+    "templates/downstream/.ai/project/changes/_template/verification.yml",
     "templates/github/ISSUE_TEMPLATE/standard-adoption.yml",
     "templates/github/ISSUE_TEMPLATE/guidance.yml",
     "templates/github/ISSUE_TEMPLATE/process-decision.yml",
+    "templates/github/ISSUE_TEMPLATE/task.yml",
+    "templates/github/ISSUE_TEMPLATE/feature.yml",
+    "templates/github/ISSUE_TEMPLATE/investigation.yml",
+    "templates/github/ISSUE_TEMPLATE/algorithm-decision.yml",
+    "templates/github/ISSUE_TEMPLATE/operations-change.yml",
+    "templates/github/ISSUE_TEMPLATE/incident.yml",
+    "templates/github/ISSUE_TEMPLATE/deprecation.yml",
     ".github/PULL_REQUEST_TEMPLATE.md",
     ".github/workflows/validate-standard.yml",
     "scripts/plan-adoption.py",
+    "scripts/run-standard-evals.py",
 ]
 
 
@@ -139,9 +201,66 @@ def check_adapter_consistency(errors):
             "DEVELOPMENT_METHODS.md",
             "NEXT_ACTION.md",
             "AI_TOOL_COMPATIBILITY.md",
+            "ASSURANCE_LEVELS.md",
+            "TRACEABILITY.md",
+            "CAPABILITY_MANAGEMENT.md",
+            "MERGE_GOVERNANCE.md",
+            "AI_HUMAN_INTERACTION.md",
         ]:
             if standard not in content:
                 errors.append(f"{label} does not reference {standard}")
+        if "CONTEXT_INDEX.yml" not in content:
+            errors.append(f"{label} does not reference CONTEXT_INDEX.yml")
+
+
+def check_no_tabs(errors):
+    for relative in REQUIRED_FILES:
+        path = ROOT / relative
+        if path.is_file() and "\t" in path.read_text(encoding="utf-8"):
+            errors.append(f"File contains tab characters: {relative}")
+
+
+def check_context_index(errors):
+    content = read_text("templates/downstream/.ai/project/CONTEXT_INDEX.yml")
+    for marker in [
+        "id:",
+        "load_when:",
+        "applies_to:",
+        "severity:",
+        "required_action:",
+        "human_interaction_type:",
+        "overridable:",
+    ]:
+        if marker not in content:
+            errors.append(f"CONTEXT_INDEX.yml missing marker: {marker}")
+
+
+def check_capability_ids(errors):
+    content = read_text("templates/downstream/.ai/project/CAPABILITIES.yml")
+    ids = []
+    for line in content.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("- id:"):
+            ids.append(stripped.split(":", 1)[1].strip())
+    duplicates = sorted({item for item in ids if ids.count(item) > 1})
+    for duplicate in duplicates:
+        errors.append(f"Duplicate capability id in template: {duplicate}")
+
+
+def check_change_package_template(errors):
+    required = [
+        "change.yml",
+        "requirements.yml",
+        "design.md",
+        "traceability.yml",
+        "decisions.md",
+        "verification.yml",
+    ]
+    base = ROOT / "templates" / "downstream" / ".ai" / "project" / "changes" / "_template"
+    for name in required:
+        path = base / name
+        if not path.is_file():
+            errors.append(f"Missing change package template file: {name}")
 
 
 def main() -> int:
@@ -150,6 +269,10 @@ def main() -> int:
     check_profiles(errors)
     check_version(errors)
     check_adapter_consistency(errors)
+    check_no_tabs(errors)
+    check_context_index(errors)
+    check_capability_ids(errors)
+    check_change_package_template(errors)
 
     if errors:
         for error in errors:

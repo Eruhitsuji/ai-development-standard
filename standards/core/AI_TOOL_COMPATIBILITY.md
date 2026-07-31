@@ -31,13 +31,15 @@ separate rules that change the common behavior.
 Every AI tool must follow this sequence:
 
 1. Read the common standard, project rules, commands, and target task.
-2. Identify the current process phase and method.
-3. Confirm scope, write scope, dependencies, and acceptance criteria.
-4. Plan non-trivial work before editing.
-5. Change only files allowed by the task contract.
-6. Run applicable checks or clearly report why they could not run.
-7. Inspect the diff before reporting completion.
-8. Report changed files, verification results, and remaining risks.
+2. Use `.ai/project/CONTEXT_INDEX.yml` to load task-relevant rules by trigger.
+3. Identify the current process phase, method, change type, and assurance level.
+4. Confirm scope, write scope, dependencies, acceptance criteria, traceability,
+   capability impact, and required human approvals.
+5. Plan non-trivial work before editing.
+6. Change only files allowed by the task contract.
+7. Run applicable checks or clearly report why they could not run.
+8. Inspect the diff before reporting completion.
+9. Report changed files, verification results, and remaining risks.
 
 ## Adapter Responsibilities
 
@@ -66,8 +68,10 @@ When transferring work between AI tools or between a human and an AI, include:
 - current process state
 - selected development method
 - standard version and commit SHA
+- applicable context index entries and rule IDs
 - write scope and forbidden scope
 - acceptance criteria
+- assurance level and human approvals still needed
 - commands run and results
 - open decisions, blockers, and risks
 

@@ -36,6 +36,15 @@ Cancelled
 - Integration Owner
 - Development Method
 - Current Phase
+- Change Type
+- Assurance Level
+- Complexity Score
+- Capability ID
+- Requirement ID
+- Traceability Record
+- Reuse Decision
+- Shared Files
+- Integration Order
 
 ## Issue Requirements
 
@@ -51,8 +60,42 @@ Implementation issues must include:
 - ownership
 - write scope
 - dependencies
+- task size and complexity score
+- assurance level
+- traceability to requirement or capability
+- reuse or duplicate-feature check result
+- shared files and integration owner when applicable
 
 Do not start implementation while an issue is `Inbox` or `Blocked`.
+
+## Task Size Rules
+
+Tasks should be XS or S. M tasks require a written reason that the work cannot
+be split further. L and XL tasks must not become `Ready`; decompose them into
+smaller issues first.
+
+Use `TASK_DECOMPOSITION.md` before marking work Ready.
+
+## Traceability and Capability Checks
+
+Before implementation, the task must record the chain it contributes to:
+
+```text
+Requirement -> Capability -> Epic -> Task -> PR -> Test/Evidence -> Release
+```
+
+Check `.ai/project/CAPABILITIES.yml`, related Issues, open PRs, existing APIs,
+shared libraries, and dependencies before creating a new implementation. Record
+whether the task reuses, extends, creates, replaces, or deprecates a capability.
+
+Use `CAPABILITY_MANAGEMENT.md` and `TRACEABILITY.md`.
+
+## Investigation and Implementation
+
+Investigation and implementation are separate by default. Use an Investigation
+issue when requirements, feasibility, algorithm choice, dependency impact, or
+performance risk is unclear. Implementation tasks may include the tests directly
+required to verify the change.
 
 ## Guidance Issues
 
