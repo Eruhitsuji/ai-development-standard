@@ -44,3 +44,8 @@
   validation runner.
 - Expanded repository validation to cover new standards, downstream templates,
   schemas, adapters, and standard eval files.
+- Added the MIT License and a public vulnerability reporting policy.
+- Added authoritative English and convenience Japanese Quick Start guides.
+- Added Experimental Preview status and known-limitations documentation.
+- Added a public release checklist and a lightweight tracked-file secret scan.
+- Added public release readiness checks to local validation and GitHub Actions.
