@@ -4,6 +4,10 @@ Projects may use different development methods, but they must keep the common
 quality baseline: traceable tasks, explicit scope, independent review, verified
 changes, and recorded decisions.
 
+Development method is only one axis. Each task must also declare its change
+type and assurance level. Use `ASSURANCE_LEVELS.md` so low-risk work stays
+lightweight and high-risk work receives enough review and evidence.
+
 ## Default Method
 
 If a project has not selected a method, use the adaptive default:

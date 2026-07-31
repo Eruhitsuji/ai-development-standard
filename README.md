@@ -31,6 +31,12 @@ Use this repository as the canonical source for:
 - existing project adoption flow
 - next-action guidance for users who do not know what to do next
 - development method selection beyond only agile or W-model
+- risk-based assurance levels across Quick, Standard, High, and Regulated work
+- full lifecycle coverage from discovery through operations, incidents,
+  deprecation, and retirement
+- traceability and capability management to prevent duplicate or missing work
+- AI-human interaction rules for recommendations, decision requests, blockers,
+  approvals, and completion guidance
 - standard update flow
 - Issue and pull request templates
 - GitHub Actions starter workflows
@@ -59,6 +65,7 @@ The project-local snapshot must be committed, reviewable, and version-locked.
 
 ```text
 standards/core/          Required shared standards
+standards/evals/         Model-neutral standard evaluation scenarios
 standards/profiles/      Optional technology/domain profiles
 agents/roles/            Role definitions for humans and AI agents
 agents/policies/         Cross-agent execution policies
@@ -78,9 +85,22 @@ The shared baseline defines these project-independent quality areas:
 - methods: Kanban, Scrum, Scrumban, Waterfall, V-model, W-model, XP, Lean,
   dual-track agile, Shape Up, Spiral, prototype/PoC, trunk-based development,
   release train, maintenance, and regulated flows
+- assurance: Quick, Standard, High, and Regulated levels selected by risk,
+  change type, evidence needs, and required human approvals
+- specification consistency: living specs plus change packages for
+  requirements, design, traceability, decisions, and verification
+- task decomposition: XS/S preferred, M requires reason, L/XL cannot be Ready
+- capability management: registry, reuse check, duplicate detection,
+  deprecation, and replacement records
+- traceability: Requirement -> Capability -> Epic -> Task -> PR ->
+  Test/Evidence -> Release
 - guidance: AI-assisted current-state diagnosis and next-action recommendation
 - AI compatibility: shared execution contract across Codex, Claude Code, Kiro,
   and future tools
+- AI-human interaction: concise recommendations, one to three questions, and
+  explicit decision requests for human-only approvals
+- merge governance: stale-review detection, merge authority separation,
+  shared-file ownership, rollback/revert confirmation, and Ruleset safety
 - review: requirements, design, code, test, security, integration, and release
   viewpoints
 - testing: acceptance, normal path, edge, error, compatibility, security, data,
@@ -172,10 +192,18 @@ Run:
 
 ```bash
 python scripts/validate-standard.py
+python scripts/run-standard-evals.py
 ```
 
 The validation script checks the presence of required files and basic adapter
-consistency.
+consistency. The evaluation runner checks that required AI behavior scenarios
+exist and contain expected `must` and `must_not` outcomes.
+
+Run the combined local check:
+
+```bash
+./scripts/check.sh
+```
 
 For an existing downstream repository, first inspect the expected adoption work:
 

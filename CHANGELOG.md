@@ -26,3 +26,21 @@
 - Added Codex, Claude Code, and Kiro adapter templates.
 - Added downstream project templates for `.ai/managed` and `.ai/project`.
 - Added GitHub Issue, pull request, and Actions starter templates.
+- Added full lifecycle standards for specification, operations, incidents,
+  deprecation, retirement, and improvement loops.
+- Added assurance levels, task decomposition, traceability, capability
+  management, roles, merge governance, AI-human interaction, AI permissions,
+  automation, and knowledge maintenance standards.
+- Added downstream `.ai/project` templates for context loading, capabilities,
+  traceability, assurance, roles, merge policy, permissions, lifecycle, and
+  change packages.
+- Expanded task, feature, investigation, algorithm, operations, incident, and
+  deprecation Issue Form templates.
+- Added reusable templates for algorithm decisions, operations changes,
+  incidents, deprecation plans, review ledgers, and release checklists.
+- Expanded PR templates with assurance level, review ledger, merge readiness,
+  standard evaluation, migration, and human decision sections.
+- Added model-neutral standard evaluation scenarios and a lightweight eval
+  validation runner.
+- Expanded repository validation to cover new standards, downstream templates,
+  schemas, adapters, and standard eval files.

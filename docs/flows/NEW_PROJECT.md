@@ -33,6 +33,7 @@ Project request
   -> create initialization branch
   -> install standard snapshot into .ai/managed
   -> generate .ai/project files
+  -> initialize context, capability, traceability, assurance, role, merge, permission, and lifecycle files
   -> generate AGENTS.md, CLAUDE.md, and .kiro/steering
   -> add GitHub Issue and PR templates
   -> add validation workflow
@@ -50,6 +51,8 @@ Normal feature development starts only after:
 - CODEOWNERS or equivalent ownership rules exist
 - initial CI passes
 - the first development Epic exists
+- context index, capability registry, traceability, assurance, role, merge
+  policy, permission, and lifecycle files exist under `.ai/project`
 
 ## Generated Downstream Layout
 
@@ -59,6 +62,15 @@ project/
 |   +-- standard.lock.yml
 |   +-- managed/
 |   +-- project/
+|       +-- CONTEXT_INDEX.yml
+|       +-- CAPABILITIES.yml
+|       +-- TRACEABILITY.yml
+|       +-- ASSURANCE.yml
+|       +-- ROLES.yml
+|       +-- MERGE_POLICY.yml
+|       +-- PERMISSIONS.yml
+|       +-- LIFECYCLE.yml
+|       +-- changes/
 +-- AGENTS.md
 +-- CLAUDE.md
 +-- .kiro/steering/

@@ -21,6 +21,12 @@ Minimum inspection sources:
 - `.ai/project/METHOD.yml`
 - `.ai/project/GUIDANCE.yml`
 - `.ai/project/COMMANDS.yml`
+- `.ai/project/CONTEXT_INDEX.yml`
+- `.ai/project/CAPABILITIES.yml`
+- `.ai/project/TRACEABILITY.yml`
+- `.ai/project/ASSURANCE.yml`
+- `.ai/project/ROLES.yml`
+- `.ai/project/MERGE_POLICY.yml`
 - active GitHub Issue, pull request, or Project item when available
 - local TODO markers and foundation issue templates when no issue exists
 - recent CI or validation status when available
@@ -74,6 +80,10 @@ action and at most two alternatives.
   commands.
 - Prefer existing process method in `.ai/project/METHOD.yml`; if absent, use
   the adaptive default in `DEVELOPMENT_METHODS.md`.
+- Prefer context loading rules from `.ai/project/CONTEXT_INDEX.yml` so the AI
+  loads only the needed standard sections.
+- Escalate to a human decision when `AI_HUMAN_INTERACTION.md` or
+  `AI_PERMISSIONS.md` marks the action as approval-required.
 - Do not mark work Done before the Definition of Done is satisfied.
 
 ## Output Limits

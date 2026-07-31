@@ -16,6 +16,7 @@ Audit existing project
   -> create adoption branch
   -> install .ai/managed snapshot
   -> add .ai/project project-specific files
+  -> add context index, capability registry, traceability, assurance, roles, and merge policy
   -> add or align AI entry files
   -> add validation and templates without overwriting existing workflows
   -> open adoption pull request
@@ -41,6 +42,8 @@ At minimum, collect:
 - selected profiles
 - existing languages, runtimes, package managers, and CI commands
 - existing `AGENTS.md`, `CLAUDE.md`, `.kiro/`, `.github/`, or CODEOWNERS files
+- existing capabilities, duplicate features, shared modules, and public APIs
+- existing release, deployment, monitoring, incident, or deprecation practices
 - maintainer, project owner, technical owners, and reviewers
 - open pull requests, release freezes, or risky active work
 - desired activation level
@@ -64,15 +67,18 @@ CI and ownership are stable.
 4. Create `chore/adopt-ai-development-standard`.
 5. Install `.ai/managed/**` and `.ai/standard.lock.yml`.
 6. Generate missing `.ai/project/**` files with TODO values where needed.
-7. Preserve existing AI entry files and CI files.
-8. Add missing references to the standard manually when an entry file already
+7. Initialize `CONTEXT_INDEX.yml`, `CAPABILITIES.yml`, `TRACEABILITY.yml`,
+   `ASSURANCE.yml`, `ROLES.yml`, `MERGE_POLICY.yml`, `PERMISSIONS.yml`, and
+   `LIFECYCLE.yml`.
+8. Preserve existing AI entry files and CI files.
+9. Add missing references to the standard manually when an entry file already
    exists.
-9. Add issue and pull request templates only when they do not conflict with
+10. Add issue and pull request templates only when they do not conflict with
    existing templates.
-10. Run standard validation and existing project checks that are already known.
-11. Open an adoption pull request.
-12. Create foundation alignment issues for anything still TODO.
-13. Enable stricter rules only after the adoption pull request is merged.
+11. Run standard validation and existing project checks that are already known.
+12. Open an adoption pull request.
+13. Create foundation alignment issues for anything still TODO.
+14. Enable stricter rules only after the adoption pull request is merged.
 
 ## Existing File Handling
 
@@ -97,6 +103,11 @@ After adoption, create issues for unfinished alignment work:
 - define setup, format, lint, test, and full-check commands
 - align CODEOWNERS and `.ai/project/OWNERS.yml`
 - define write scopes for active modules
+- initialize the capability registry and mark unknown areas as TODO
+- create traceability records for active epics and important features
+- select default assurance levels for project change types
+- define human-only approval owners for merge, release, deployment, rollback,
+  security exceptions, and data deletion
 - migrate or add issue templates
 - migrate or add pull request template sections
 - add or stabilize CI
