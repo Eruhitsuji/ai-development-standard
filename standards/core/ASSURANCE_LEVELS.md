@@ -51,4 +51,3 @@ Regulated risk is owned by a human authority.
 All development methods can use any assurance level. Do not force regulated
 process on every change, and do not use a lightweight method to avoid required
 evidence.
-

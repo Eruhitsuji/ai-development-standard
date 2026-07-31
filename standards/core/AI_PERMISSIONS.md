@@ -36,4 +36,3 @@ AI must not:
 - store secrets in repository files, prompts, issues, PRs, logs, or artifacts
 - resolve semantic conflicts without understanding and recording the decision
 - claim a command passed unless it was executed
-

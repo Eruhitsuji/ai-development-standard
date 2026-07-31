@@ -45,4 +45,3 @@ Potential duplicates must be resolved before the task becomes Ready.
 - IDs should be human-readable, such as `cap-auth-login`.
 - Do not reuse retired IDs for unrelated behavior.
 - Validation should fail when duplicate active IDs are detected.
-

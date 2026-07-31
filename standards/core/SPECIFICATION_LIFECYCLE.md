@@ -38,4 +38,3 @@ See `ARTIFACT_CONSISTENCY.md` and `TRACEABILITY.md`.
 
 Escalate assurance level when a change has security, data, operations,
 compatibility, release, or compliance impact. See `ASSURANCE_LEVELS.md`.
-

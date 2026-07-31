@@ -31,4 +31,3 @@ package.
 
 When the same project-specific rule appears in multiple projects, propose it as
 a common standard or profile update.
-

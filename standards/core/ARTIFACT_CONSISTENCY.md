@@ -64,4 +64,3 @@ note is marked as one of:
    status.
 
 Do not leave merged behavior only in a temporary change package.
-

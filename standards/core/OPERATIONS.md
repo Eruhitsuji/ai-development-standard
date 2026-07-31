@@ -43,4 +43,3 @@ Incident work must separate:
 - post-incident review
 
 An AI may assist the Incident Commander, but cannot be the Incident Commander.
-

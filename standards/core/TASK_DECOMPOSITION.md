@@ -68,4 +68,3 @@ For algorithm changes, record:
 - performance requirement
 - measurement method
 - benchmark or regression evidence when applicable
-

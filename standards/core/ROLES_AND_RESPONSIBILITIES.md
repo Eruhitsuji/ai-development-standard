@@ -43,4 +43,3 @@ The following responsibilities are limited to a human or approved human team:
 AI tools may recommend actions, draft artifacts, implement scoped changes, and
 perform first-pass review, but they must not claim final authority for these
 responsibilities.
-

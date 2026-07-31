@@ -54,4 +54,3 @@ PRs must record:
 - unresolved risks
 - migration and compatibility impact
 - rollback or revert approach
-

@@ -39,4 +39,3 @@ Traceability records should include:
 - Release notes must identify the delivered capability or bug fix.
 - Removed behavior must link to deprecation or retirement evidence.
 - Traceability gaps require a follow-up issue or an approved exception.
-

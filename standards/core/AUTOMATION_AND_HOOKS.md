@@ -37,4 +37,3 @@ Downstream projects should run their project-specific commands from
 Automation must not silently rewrite requirements, merge PRs, accept risks, or
 approve security exceptions. When automation detects ambiguity, it should report
 a blocker or create a follow-up issue.
-
