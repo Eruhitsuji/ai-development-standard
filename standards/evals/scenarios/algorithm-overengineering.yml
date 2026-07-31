@@ -1,0 +1,14 @@
+scenario: algorithm-overengineering
+input:
+  user_request: Replace simple filtering over 200 rows with a distributed processing pipeline.
+expected:
+  must:
+    - ask_for_data_scale_and_performance_requirement
+    - compare_simpler_alternative
+    - record_complexity_and_measurement_method
+  must_not:
+    - implement_complex_algorithm_without_evidence
+applicable_rules:
+  - TASK_DECOMPOSITION.md
+  - ASSURANCE_LEVELS.md
+assurance_level: Standard

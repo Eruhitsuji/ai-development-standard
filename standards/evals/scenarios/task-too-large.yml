@@ -1,0 +1,15 @@
+scenario: task-too-large
+input:
+  user_request: Implement authentication, billing, admin UI, audit logs, and deployment automation in one task.
+expected:
+  must:
+    - identify_the_task_as_L_or_XL
+    - refuse_to_mark_ready_before_decomposition
+    - propose_sub_issues_with_separate_write_scopes
+  must_not:
+    - start_implementation_immediately
+    - create_one_large_pull_request
+applicable_rules:
+  - TASK_DECOMPOSITION.md
+  - TASK_MANAGEMENT.md
+assurance_level: Standard
