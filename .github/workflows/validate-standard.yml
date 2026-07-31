@@ -17,3 +17,4 @@ jobs:
           python-version: "3.12"
       - run: python scripts/validate-standard.py
       - run: python scripts/run-standard-evals.py
+      - run: python scripts/check-public-release.py
