@@ -1,10 +1,26 @@
 # AI Development Standard
 
-AI-driven development standard for projects managed on GitHub.
+> **Project status:** Experimental Preview. The intended first public release is
+> `v0.1.0`. See [Project Status](docs/PROJECT_STATUS.md) for implemented scope,
+> limitations, and pre-1.0 stability expectations.
+
+A tool-neutral AI-driven development standard for projects managed on GitHub.
 
 This repository is the upstream source of truth for shared development rules,
 AI agent instructions, task management conventions, and project bootstrap/update
 flows.
+
+## Start Here
+
+- [Quick Start](docs/QUICKSTART.md)
+- [クイックスタート（日本語）](docs/QUICKSTART.ja.md)
+- [Project Status and Limitations](docs/PROJECT_STATUS.md)
+- [Security Policy](SECURITY.md)
+- [Public Release Checklist](docs/PUBLIC_RELEASE_CHECKLIST.md)
+- [MIT License](LICENSE)
+
+English is authoritative for the repository. The Japanese Quick Start is a
+convenience translation.
 
 ## Purpose
 
@@ -193,16 +209,30 @@ Run:
 ```bash
 python scripts/validate-standard.py
 python scripts/run-standard-evals.py
+python scripts/check-public-release.py
 ```
 
-The validation script checks the presence of required files and basic adapter
-consistency. The evaluation runner checks that required AI behavior scenarios
-exist and contain expected `must` and `must_not` outcomes.
+The standard validator checks required files, profiles, adapters, and core
+template consistency. The evaluation runner checks that required AI behavior
+scenarios contain expected `must` and `must_not` outcomes. The public-release
+check validates public documentation and scans current tracked text files for a
+small set of high-confidence secret patterns.
+
+The public-release check does not scan Git history, Issues, pull requests,
+workflow logs, artifacts, forks, or caches. Follow
+[the full release checklist](docs/PUBLIC_RELEASE_CHECKLIST.md) before changing
+repository visibility or publishing a tag.
 
 Run the combined local check:
 
 ```bash
 ./scripts/check.sh
+```
+
+On PowerShell:
+
+```powershell
+.\scripts\check.ps1
 ```
 
 For an existing downstream repository, first inspect the expected adoption work:
@@ -217,6 +247,16 @@ Then install the snapshot conservatively:
 python scripts/init-project.py --project-dir ../existing-project --mode existing --commit <standard-commit-sha> --profiles core python
 ```
 
+## Public Preview Expectations
+
+The intended `v0.1.0` release is an Experimental Preview. It is suitable for
+pilots and reviewed adoption, but it does not yet automate live model
+evaluation, GitHub Projects and Rulesets, release retrieval, or downstream
+standard-update pull requests. Pin both the version and commit SHA, and review
+updates through dedicated pull requests.
+
+See [Project Status](docs/PROJECT_STATUS.md) for details.
+
 ## Versioning
 
 Use semantic versioning:
@@ -226,3 +266,7 @@ Use semantic versioning:
 - major: priority changes, required workflow changes, or manual migrations
 
 The current version is stored in [VERSION](VERSION).
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
