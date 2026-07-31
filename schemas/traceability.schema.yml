@@ -1,0 +1,20 @@
+schema_version: 1
+
+required:
+  - traceability
+
+chain_required_fields:
+  - requirement_id
+  - capability_id
+  - task_issue
+  - pull_request
+  - tests_or_evidence
+  - status
+
+allowed_status:
+  - proposed
+  - implemented
+  - verified
+  - released
+  - deprecated
+  - retired

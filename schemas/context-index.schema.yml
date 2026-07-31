@@ -1,0 +1,23 @@
+schema_version: 1
+
+required:
+  - context_loading
+  - rules
+
+rule_required_fields:
+  - id
+  - title
+  - documents
+  - load_when
+  - applies_to
+  - severity
+  - required_action
+  - human_interaction_type
+  - overridable
+
+allowed_human_interaction_types:
+  - Information
+  - Recommendation
+  - Decision Request
+  - Blocker
+  - Completion and Next Action

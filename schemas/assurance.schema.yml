@@ -1,0 +1,19 @@
+schema_version: 1
+
+required:
+  - default_assurance_level
+  - change_types
+  - levels
+
+required_levels:
+  - Quick
+  - Standard
+  - High
+  - Regulated
+
+required_level_fields:
+  - artifacts
+  - reviews
+  - human_approval
+  - verification
+  - merge_conditions

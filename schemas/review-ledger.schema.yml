@@ -1,0 +1,18 @@
+schema_version: 1
+
+required_fields:
+  - reviewer
+  - review_type
+  - target_commit
+  - result
+  - finding_count
+  - completed_at
+
+review_is_stale_when: reviewed_commit != current_head_commit
+
+allowed_results:
+  - pending
+  - approved
+  - changes_requested
+  - blocked
+  - reconfirmed

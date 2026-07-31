@@ -1,0 +1,16 @@
+schema_version: 1
+
+required:
+  - roles
+  - human_only_decisions
+
+role_required_fields:
+  - assignable_to
+  - human_only
+  - responsibility
+
+human_only_roles:
+  - Accountable Owner
+  - Merge Authority
+  - Release Authority
+  - Incident Commander
