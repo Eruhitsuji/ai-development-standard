@@ -1,0 +1,79 @@
+schema_version: 1
+
+description: Common schema for runtime AI development findings.
+
+required:
+  - finding_id
+  - category
+  - subtype
+  - severity
+  - confidence
+  - evidence
+  - analysis
+
+categories:
+  - project_violation
+  - standard_defect
+  - tool_compatibility
+  - unclear_guidance
+  - missing_rule
+  - conflicting_rules
+  - workflow_friction
+  - excessive_context
+  - efficiency_problem
+  - privacy_risk
+
+severity_values:
+  - low
+  - medium
+  - high
+  - critical
+
+fields:
+  finding_id:
+    type: string
+    description: Stable sha256 fingerprint prefixed with sha256:.
+  category:
+    type: enum
+    values: categories
+  subtype:
+    type: string
+  severity:
+    type: enum
+    values: severity_values
+  confidence:
+    type: number
+    minimum: 0
+    maximum: 1
+  standard.version:
+    type: string_or_null
+  standard.commit:
+    type: string_or_null
+  standard.rule_ids:
+    type: list
+  sessions:
+    type: list
+  evidence:
+    type: list
+  analysis.summary:
+    type: string
+  analysis.expected:
+    type: string
+  analysis.observed:
+    type: string
+  analysis.impact:
+    type: string
+  analysis.suggested_change:
+    type: string
+  human_review:
+    type: enum
+    values:
+      - not_reviewed
+      - reviewed
+      - dismissed
+      - accepted
+
+reporting:
+  issue_marker: ADS-FINDING
+  raw_evidence_default: excluded
+  upstream_public_issue_default: sanitized_summary_only

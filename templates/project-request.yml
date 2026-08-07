@@ -36,6 +36,12 @@ guidance:
   beginner_support: true
   next_action_support: true
 
+runtime_evidence:
+  enabled: false
+  default_mode: metadata_only
+  automatic_upstream_reporting: false
+  require_human_approval: true
+
 owners:
   maintainers:
     - Eruhitsuji

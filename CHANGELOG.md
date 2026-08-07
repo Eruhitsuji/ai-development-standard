@@ -42,6 +42,9 @@
   standard evaluation, migration, and human decision sections.
 - Added model-neutral standard evaluation scenarios and a lightweight eval
   validation runner.
+- Added local-first runtime AI evidence contracts, schemas, runtime eval
+  scenarios, starter scripts, sanitized finding reports, and downstream
+  `AI_HISTORY.yml` configuration.
 - Expanded repository validation to cover new standards, downstream templates,
   schemas, adapters, and standard eval files.
 - Added the MIT License and a public vulnerability reporting policy.

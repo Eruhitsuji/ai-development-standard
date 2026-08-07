@@ -42,6 +42,7 @@ Use this repository as the canonical source for:
 - multi-human and multi-AI parallel development rules
 - GitHub Issues/Projects based task management
 - downstream `.ai/managed` and `.ai/project` separation
+- local-first runtime evidence collection from AI development history
 - Codex, Claude Code, and Kiro adapter templates
 - new project initialization flow
 - existing project adoption flow
@@ -82,6 +83,7 @@ The project-local snapshot must be committed, reviewable, and version-locked.
 ```text
 standards/core/          Required shared standards
 standards/evals/         Model-neutral standard evaluation scenarios
+standards/evals/runtime/ Runtime evidence evaluation scenarios
 standards/profiles/      Optional technology/domain profiles
 agents/roles/            Role definitions for humans and AI agents
 agents/policies/         Cross-agent execution policies
@@ -111,6 +113,9 @@ The shared baseline defines these project-independent quality areas:
 - traceability: Requirement -> Capability -> Epic -> Task -> PR ->
   Test/Evidence -> Release
 - guidance: AI-assisted current-state diagnosis and next-action recommendation
+- runtime evidence: local-first AI history collection, provider-neutral
+  normalized events, deterministic findings, sanitized reporting, and upstream
+  standard feedback loops
 - AI compatibility: shared execution contract across Codex, Claude Code, Kiro,
   and future tools
 - AI-human interaction: concise recommendations, one to three questions, and
@@ -222,6 +227,18 @@ The public-release check does not scan Git history, Issues, pull requests,
 workflow logs, artifacts, forks, or caches. Follow
 [the full release checklist](docs/PUBLIC_RELEASE_CHECKLIST.md) before changing
 repository visibility or publishing a tag.
+
+Runtime evidence tooling is available for local preview use:
+
+```bash
+python scripts/export-ai-history.py --project-dir ../project --output ai-development-history.jsonl
+python scripts/analyze-ai-history.py ai-development-history.jsonl --output ai-history-findings.jsonl
+python scripts/report-ai-findings.py ai-history-findings.jsonl --output ai-finding-report.md
+```
+
+The exporter omits raw provider content unless `--include-raw` is explicitly
+provided. Generated reports are sanitized summaries and do not create GitHub
+Issues automatically.
 
 Run the combined local check:
 

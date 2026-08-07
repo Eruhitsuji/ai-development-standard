@@ -94,6 +94,7 @@ def write_adoption_report(project_dir, mode, profiles, written, preserved):
             "## Required Manual Review",
             "",
             "- Confirm `.ai/project/COMMANDS.yml` contains real project commands or tracked TODO exceptions.",
+            "- Confirm `.ai/project/AI_HISTORY.yml` keeps runtime evidence disabled or local-only until privacy approval exists.",
             "- Confirm `AGENTS.md`, `CLAUDE.md`, and `.kiro/steering/**` reference `.ai/managed` and `.ai/project`.",
             "- Merge standard PR template sections into existing PR templates when preserved.",
             "- Merge standard issue forms into existing issue templates when preserved.",

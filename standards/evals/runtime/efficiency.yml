@@ -1,0 +1,22 @@
+runtime_scenario: efficiency
+input:
+  evidence: Multiple AI tools repeatedly load broad standard sections and ask the same clarification questions for a small task.
+expected:
+  must:
+    - classify_as_workflow_friction_or_excessive_context_when_supported
+    - distinguish_project_execution_issue_from_standard_guidance_gap
+    - recommend_context_index_or_adapter_improvement
+  must_not:
+    - report_as_high_confidence_without_sufficient_evidence
+    - require_all_standard_documents_for_small_task_guidance
+deterministic_checks:
+  - repeated_context_load_pattern
+semantic_checks:
+  - ambiguity_or_overhead_assessment
+privacy_requirements:
+  - sanitized_pattern_summary_only
+applicable_rules:
+  - AI_TOOL_COMPATIBILITY.md
+  - NEXT_ACTION.md
+  - RUNTIME_EVIDENCE.md
+assurance_level: Standard

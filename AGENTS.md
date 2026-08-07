@@ -19,14 +19,15 @@ Read these before changing the standard:
 11. `standards/core/REVIEW.md`
 12. `standards/core/MERGE_GOVERNANCE.md`
 13. `standards/core/AI_HUMAN_INTERACTION.md`
-14. `docs/flows/OVERALL_FLOW.md`
-15. `docs/flows/NEW_PROJECT.md`
-16. `docs/flows/EXISTING_PROJECT_ADOPTION.md`
-17. `docs/flows/STANDARD_UPDATE.md`
-18. `.ai/project/PROJECT.yml`
-19. `.ai/project/METHOD.yml`
-20. `.ai/project/GUIDANCE.yml`
-21. `.ai/project/COMMANDS.yml`
+14. `standards/core/RUNTIME_EVIDENCE.md`
+15. `docs/flows/OVERALL_FLOW.md`
+16. `docs/flows/NEW_PROJECT.md`
+17. `docs/flows/EXISTING_PROJECT_ADOPTION.md`
+18. `docs/flows/STANDARD_UPDATE.md`
+19. `.ai/project/PROJECT.yml`
+20. `.ai/project/METHOD.yml`
+21. `.ai/project/GUIDANCE.yml`
+22. `.ai/project/COMMANDS.yml`
 
 ## Instruction Priority
 
@@ -63,6 +64,8 @@ Before implementation:
 5. Identify affected process, review, test, coding, and security viewpoints.
 6. Identify affected assurance level, traceability, downstream templates, and
    validation coverage.
+7. Identify runtime evidence, privacy, and reporting impact when changing AI
+   behavior, task governance, or evaluation rules.
 
 During implementation:
 

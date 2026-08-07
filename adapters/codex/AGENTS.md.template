@@ -14,18 +14,20 @@ Read and follow:
 10. `.ai/managed/core/REVIEW.md`
 11. `.ai/managed/core/MERGE_GOVERNANCE.md`
 12. `.ai/managed/core/AI_HUMAN_INTERACTION.md`
-13. relevant `.ai/managed/profiles/**/INDEX.md`
-14. `.ai/project/PROJECT.yml`
-15. `.ai/project/METHOD.yml`
-16. `.ai/project/GUIDANCE.yml`
-17. `.ai/project/CONTEXT_INDEX.yml`
-18. `.ai/project/CAPABILITIES.yml`
-19. `.ai/project/TRACEABILITY.yml`
-20. `.ai/project/ASSURANCE.yml`
-21. `.ai/project/ROLES.yml`
-22. `.ai/project/RULES.md`
-23. `.ai/project/COMMANDS.yml`
-24. the assigned GitHub Issue and task contract
+13. `.ai/managed/core/RUNTIME_EVIDENCE.md`
+14. relevant `.ai/managed/profiles/**/INDEX.md`
+15. `.ai/project/PROJECT.yml`
+16. `.ai/project/METHOD.yml`
+17. `.ai/project/GUIDANCE.yml`
+18. `.ai/project/CONTEXT_INDEX.yml`
+19. `.ai/project/CAPABILITIES.yml`
+20. `.ai/project/TRACEABILITY.yml`
+21. `.ai/project/ASSURANCE.yml`
+22. `.ai/project/ROLES.yml`
+23. `.ai/project/RULES.md`
+24. `.ai/project/COMMANDS.yml`
+25. `.ai/project/AI_HISTORY.yml`
+26. the assigned GitHub Issue and task contract
 
 ## Ownership
 
@@ -60,3 +62,7 @@ to three actions.
 
 When a decision requires human authority, use the Decision Request format from
 `.ai/managed/core/AI_HUMAN_INTERACTION.md`.
+
+When runtime evidence is requested, follow `.ai/managed/core/RUNTIME_EVIDENCE.md`
+and `.ai/project/AI_HISTORY.yml`. Do not upload raw AI history or transcripts by
+default.

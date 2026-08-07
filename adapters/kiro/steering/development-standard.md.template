@@ -14,6 +14,7 @@ Follow:
 - `.ai/managed/core/REVIEW.md`
 - `.ai/managed/core/MERGE_GOVERNANCE.md`
 - `.ai/managed/core/AI_HUMAN_INTERACTION.md`
+- `.ai/managed/core/RUNTIME_EVIDENCE.md`
 - `.ai/managed/core/TASK_MANAGEMENT.md`
 - `.ai/managed/core/MULTI_AGENT_DEVELOPMENT.md`
 - `.ai/project/METHOD.yml`
@@ -24,6 +25,7 @@ Follow:
 - `.ai/project/ASSURANCE.yml`
 - `.ai/project/ROLES.yml`
 - `.ai/project/RULES.md`
+- `.ai/project/AI_HISTORY.yml`
 
 Do not edit `.ai/managed/**` during normal development.
 
@@ -32,3 +34,6 @@ next one to three actions using `.ai/managed/core/NEXT_ACTION.md`.
 
 Use `.ai/project/CONTEXT_INDEX.yml` for progressive context loading. Do not
 load or restate the whole standard when a narrower rule set is enough.
+
+When runtime evidence is requested, keep collection local-first and report only
+sanitized findings unless a human approves broader disclosure.

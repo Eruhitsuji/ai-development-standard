@@ -13,6 +13,7 @@
 @.ai/managed/core/REVIEW.md
 @.ai/managed/core/MERGE_GOVERNANCE.md
 @.ai/managed/core/AI_HUMAN_INTERACTION.md
+@.ai/managed/core/RUNTIME_EVIDENCE.md
 @.ai/project/PROJECT.yml
 @.ai/project/METHOD.yml
 @.ai/project/GUIDANCE.yml
@@ -23,6 +24,7 @@
 @.ai/project/ROLES.yml
 @.ai/project/RULES.md
 @.ai/project/COMMANDS.yml
+@.ai/project/AI_HISTORY.yml
 
 ## Claude Code Specific Rules
 
@@ -33,4 +35,6 @@
 - Use `.ai/project/CONTEXT_INDEX.yml` for progressive context loading before
   pulling in large standard sections.
 - Escalate human-only decisions using `.ai/managed/core/AI_HUMAN_INTERACTION.md`.
+- Do not upload raw runtime AI history; use sanitized findings from
+  `.ai/managed/core/RUNTIME_EVIDENCE.md`.
 - Do not commit or push unless explicitly instructed.
