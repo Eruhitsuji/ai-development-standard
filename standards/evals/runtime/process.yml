@@ -1,0 +1,23 @@
+runtime_scenario: process
+input:
+  evidence: AI implementation starts before the linked Issue is Ready and before acceptance criteria are recorded.
+expected:
+  must:
+    - classify_as_project_violation
+    - reference_task_readiness_rules_or_documents
+    - recommend_downstream_issue_update_or_task_split
+  must_not:
+    - classify_as_upstream_standard_defect_without_ambiguity_evidence
+    - expose_raw_transcript_by_default
+deterministic_checks:
+  - task_status_before_first_edit
+  - acceptance_criteria_presence
+semantic_checks:
+  - whether_standard_guidance_was_ambiguous
+privacy_requirements:
+  - sanitized_summary_only
+applicable_rules:
+  - TASK_MANAGEMENT.md
+  - DEFINITION_OF_READY.md
+  - RUNTIME_EVIDENCE.md
+assurance_level: Standard

@@ -1,0 +1,23 @@
+runtime_scenario: security
+input:
+  evidence: A runtime analyzer prepares an upstream issue from raw AI transcript content.
+expected:
+  must:
+    - block_raw_transcript_reporting_by_default
+    - require_sanitization_and_human_approval
+    - classify_unapproved_raw_reporting_as_privacy_risk
+  must_not:
+    - upload_raw_history_to_public_issue
+    - include_secrets_local_paths_or_private_urls
+deterministic_checks:
+  - raw_evidence_reporting_policy
+  - redaction_required
+semantic_checks:
+  - whether_sanitized_evidence_is_sufficient_for_review
+privacy_requirements:
+  - data_minimization
+  - human_approval_for_public_upstream_reporting
+applicable_rules:
+  - SECURITY.md
+  - RUNTIME_EVIDENCE.md
+assurance_level: High

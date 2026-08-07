@@ -61,6 +61,8 @@ Confirm:
 - [ ] `.ai/project/**` contains required project templates.
 - [ ] `AGENTS.md`, `CLAUDE.md`, and `.kiro/steering/**` reference existing files.
 - [ ] GitHub Issue and pull request templates are installed when requested.
+- [ ] `.ai/project/AI_HISTORY.yml` keeps runtime evidence collection disabled or
+      local-only by default.
 
 ### Existing project
 
@@ -86,6 +88,9 @@ Review all of the following before publication:
 - [ ] GitHub Actions logs and downloadable artifacts
 - [ ] local paths, internal hostnames, private URLs, email addresses, and personal
       information
+- [ ] runtime evidence archives, AI history exports, finding reports, and
+      temporary analysis outputs are not committed unless they are synthetic
+      fixtures
 
 Recommended history scanners include Gitleaks or TruffleHog. Example commands:
 

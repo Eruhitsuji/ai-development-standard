@@ -7,8 +7,6 @@ Git history, Issues, pull requests, workflow logs, artifacts, forks, or caches.
 Follow docs/PUBLIC_RELEASE_CHECKLIST.md before publication.
 """
 
-from __future__ import annotations
-
 import re
 import subprocess
 import sys
@@ -43,13 +41,14 @@ def read_text(relative: str) -> str:
     return (ROOT / relative).read_text(encoding="utf-8")
 
 
-def tracked_files() -> list[Path]:
+def tracked_files():
     try:
         result = subprocess.run(
             ["git", "ls-files", "-z"],
             cwd=ROOT,
             check=True,
-            capture_output=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
         )
     except (FileNotFoundError, subprocess.CalledProcessError):
         return [
@@ -65,7 +64,7 @@ def tracked_files() -> list[Path]:
     ]
 
 
-def check_required_files(errors: list[str]) -> None:
+def check_required_files(errors) -> None:
     for relative in REQUIRED_FILES:
         path = ROOT / relative
         if not path.is_file():
@@ -74,7 +73,7 @@ def check_required_files(errors: list[str]) -> None:
             errors.append(f"Public-release file is empty: {relative}")
 
 
-def check_license(errors: list[str]) -> None:
+def check_license(errors) -> None:
     path = ROOT / "LICENSE"
     if not path.is_file():
         return
@@ -88,7 +87,7 @@ def check_license(errors: list[str]) -> None:
             errors.append(f"LICENSE missing expected MIT marker: {marker}")
 
 
-def check_public_docs(errors: list[str]) -> None:
+def check_public_docs(errors) -> None:
     checks = {
         "SECURITY.md": ["Reporting a Vulnerability", "Supported Versions"],
         "docs/QUICKSTART.md": [
@@ -114,7 +113,7 @@ def check_public_docs(errors: list[str]) -> None:
                 errors.append(f"{relative} missing required marker: {marker}")
 
 
-def check_secrets(errors: list[str]) -> None:
+def check_secrets(errors) -> None:
     for path in tracked_files():
         if not path.is_file() or path.stat().st_size > MAX_FILE_SIZE:
             continue
@@ -141,7 +140,7 @@ def check_secrets(errors: list[str]) -> None:
 
 
 def main() -> int:
-    errors: list[str] = []
+    errors = []
     check_required_files(errors)
     check_license(errors)
     check_public_docs(errors)

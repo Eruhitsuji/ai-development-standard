@@ -27,12 +27,16 @@ The repository currently provides:
 - conservative new-project and existing-project installation helpers
 - structural standard validation
 - model-neutral evaluation scenario definitions
+- local-first runtime evidence contracts, schemas, starter scripts, and
+  sanitized finding templates
 
 ## Known Limitations
 
 The v0.1.0 preview does not yet provide:
 
 - live execution and scoring of evaluation scenarios against AI models
+- broad provider-specific runtime history normalization for every AI tool
+- automatic runtime finding issue creation or update
 - automatic GitHub Project, label, Ruleset, team, or Merge Queue provisioning
 - automatic download and cryptographic verification of release artifacts
 - automatic confirmation that the installer `--commit` value matches the local

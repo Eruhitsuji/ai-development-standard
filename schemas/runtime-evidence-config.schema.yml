@@ -1,0 +1,42 @@
+schema_version: 1
+
+description: Downstream project configuration for runtime evidence collection.
+
+required:
+  - runtime_evidence.enabled
+  - runtime_evidence.collection.default_mode
+  - runtime_evidence.privacy.raw_content
+  - runtime_evidence.reporting.automatic_upstream_reporting
+
+fields:
+  runtime_evidence.enabled:
+    type: boolean
+  runtime_evidence.collection.default_mode:
+    type: enum
+    values:
+      - metadata_only
+      - raw_local_only
+      - disabled
+  runtime_evidence.collection.providers:
+    type: list
+  runtime_evidence.collection.project_matching:
+    type: enum
+    values:
+      - exact_root
+      - root_or_child
+  runtime_evidence.privacy.raw_content:
+    type: enum
+    values:
+      - omitted_by_default
+      - local_only_with_approval
+      - disabled
+  runtime_evidence.privacy.redaction:
+    type: object
+  runtime_evidence.reporting.automatic_upstream_reporting:
+    type: boolean
+  runtime_evidence.reporting.require_human_approval:
+    type: boolean
+  runtime_evidence.retention.raw_archive_days:
+    type: integer_or_null
+  runtime_evidence.retention.metadata_archive_days:
+    type: integer_or_null

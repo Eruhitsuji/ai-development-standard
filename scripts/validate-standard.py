@@ -5,6 +5,7 @@ The script intentionally uses only the Python standard library so it can run in
 fresh repositories and GitHub Actions without dependency setup.
 """
 
+import ast
 import sys
 from pathlib import Path
 
@@ -33,6 +34,10 @@ REQUIRED_FILES = [
     "schemas/merge-policy.schema.yml",
     "schemas/change-package.schema.yml",
     "schemas/review-ledger.schema.yml",
+    "schemas/ai-history-archive.schema.yml",
+    "schemas/ai-history-event.schema.yml",
+    "schemas/ai-finding.schema.yml",
+    "schemas/runtime-evidence-config.schema.yml",
     "docs/flows/OVERALL_FLOW.md",
     "docs/flows/NEW_PROJECT.md",
     "docs/flows/EXISTING_PROJECT_ADOPTION.md",
@@ -65,6 +70,7 @@ REQUIRED_FILES = [
     "standards/core/KNOWLEDGE_MAINTENANCE.md",
     "standards/core/STANDARD_DISTRIBUTION.md",
     "standards/core/STANDARD_EVALUATION.md",
+    "standards/core/RUNTIME_EVIDENCE.md",
     "standards/core/DEFINITION_OF_READY.md",
     "standards/core/DEFINITION_OF_DONE.md",
     "standards/evals/README.md",
@@ -79,6 +85,13 @@ REQUIRED_FILES = [
     "standards/evals/scenarios/stale-review.yml",
     "standards/evals/scenarios/specification-gap.yml",
     "standards/evals/scenarios/algorithm-overengineering.yml",
+    "standards/evals/runtime/process.yml",
+    "standards/evals/runtime/ai-human.yml",
+    "standards/evals/runtime/issue-workflow.yml",
+    "standards/evals/runtime/security.yml",
+    "standards/evals/runtime/efficiency.yml",
+    "standards/evals/runtime/fixtures/README.md",
+    "standards/evals/runtime/fixtures/synthetic-history.jsonl",
     "agents/roles/orchestrator.md",
     "agents/roles/implementer.md",
     "agents/roles/reviewer.md",
@@ -98,6 +111,8 @@ REQUIRED_FILES = [
     "templates/security-review.md",
     "templates/investigation-report.md",
     "templates/algorithm-decision.md",
+    "templates/ai-history-collection-plan.md",
+    "templates/ai-finding-report.md",
     "templates/operations-change.md",
     "templates/incident-report.md",
     "templates/deprecation-plan.md",
@@ -119,6 +134,7 @@ REQUIRED_FILES = [
     "templates/downstream/.ai/project/ROLES.yml",
     "templates/downstream/.ai/project/MERGE_POLICY.yml",
     "templates/downstream/.ai/project/PERMISSIONS.yml",
+    "templates/downstream/.ai/project/AI_HISTORY.yml",
     "templates/downstream/.ai/project/LIFECYCLE.yml",
     "templates/downstream/.ai/project/changes/README.md",
     "templates/downstream/.ai/project/changes/_template/change.yml",
@@ -137,10 +153,14 @@ REQUIRED_FILES = [
     "templates/github/ISSUE_TEMPLATE/operations-change.yml",
     "templates/github/ISSUE_TEMPLATE/incident.yml",
     "templates/github/ISSUE_TEMPLATE/deprecation.yml",
+    "templates/github/ISSUE_TEMPLATE/runtime-finding.yml",
     ".github/PULL_REQUEST_TEMPLATE.md",
     ".github/workflows/validate-standard.yml",
     "scripts/plan-adoption.py",
     "scripts/run-standard-evals.py",
+    "scripts/export-ai-history.py",
+    "scripts/analyze-ai-history.py",
+    "scripts/report-ai-findings.py",
 ]
 
 
@@ -206,11 +226,14 @@ def check_adapter_consistency(errors):
             "CAPABILITY_MANAGEMENT.md",
             "MERGE_GOVERNANCE.md",
             "AI_HUMAN_INTERACTION.md",
+            "RUNTIME_EVIDENCE.md",
         ]:
             if standard not in content:
                 errors.append(f"{label} does not reference {standard}")
         if "CONTEXT_INDEX.yml" not in content:
             errors.append(f"{label} does not reference CONTEXT_INDEX.yml")
+        if "AI_HISTORY.yml" not in content:
+            errors.append(f"{label} does not reference AI_HISTORY.yml")
 
 
 def check_no_tabs(errors):
@@ -233,6 +256,40 @@ def check_context_index(errors):
     ]:
         if marker not in content:
             errors.append(f"CONTEXT_INDEX.yml missing marker: {marker}")
+    if "CTX-RUNTIME-001" not in content:
+        errors.append("CONTEXT_INDEX.yml missing CTX-RUNTIME-001")
+
+
+def check_runtime_evidence_config(errors):
+    content = read_text("templates/downstream/.ai/project/AI_HISTORY.yml")
+    for marker in [
+        "runtime_evidence:",
+        "default_mode:",
+        "raw_content:",
+        "automatic_upstream_reporting:",
+        "require_human_approval:",
+        "ADS-FINDING",
+    ]:
+        if marker not in content:
+            errors.append(f"AI_HISTORY.yml missing marker: {marker}")
+
+
+def check_python_scripts_parse(errors):
+    for relative in [
+        "scripts/validate-standard.py",
+        "scripts/run-standard-evals.py",
+        "scripts/plan-adoption.py",
+        "scripts/init-project.py",
+        "scripts/check-public-release.py",
+        "scripts/export-ai-history.py",
+        "scripts/analyze-ai-history.py",
+        "scripts/report-ai-findings.py",
+    ]:
+        path = ROOT / relative
+        try:
+            ast.parse(path.read_text(encoding="utf-8"), filename=relative)
+        except SyntaxError as exc:
+            errors.append(f"{relative}: syntax error: {exc}")
 
 
 def check_capability_ids(errors):
@@ -271,8 +328,10 @@ def main() -> int:
     check_adapter_consistency(errors)
     check_no_tabs(errors)
     check_context_index(errors)
+    check_runtime_evidence_config(errors)
     check_capability_ids(errors)
     check_change_package_template(errors)
+    check_python_scripts_parse(errors)
 
     if errors:
         for error in errors:

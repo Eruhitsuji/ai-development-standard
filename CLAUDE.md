@@ -13,6 +13,7 @@
 @standards/core/REVIEW.md
 @standards/core/MERGE_GOVERNANCE.md
 @standards/core/AI_HUMAN_INTERACTION.md
+@standards/core/RUNTIME_EVIDENCE.md
 @docs/flows/OVERALL_FLOW.md
 @docs/flows/NEW_PROJECT.md
 @docs/flows/EXISTING_PROJECT_ADOPTION.md

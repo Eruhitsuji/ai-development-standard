@@ -1,0 +1,93 @@
+name: Runtime AI Finding
+description: Report a sanitized finding from AI development history analysis.
+title: "[Runtime Finding]: "
+labels:
+  - type:runtime-finding
+  - status:inbox
+body:
+  - type: input
+    id: finding-marker
+    attributes:
+      label: Finding marker
+      description: Stable deduplication marker, for example ADS-FINDING: sha256:...
+      placeholder: "ADS-FINDING: sha256:"
+    validations:
+      required: true
+  - type: dropdown
+    id: target
+    attributes:
+      label: Finding target
+      options:
+        - downstream-project
+        - upstream-standard
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - project_violation
+        - standard_defect
+        - tool_compatibility
+        - unclear_guidance
+        - missing_rule
+        - conflicting_rules
+        - workflow_friction
+        - excessive_context
+        - efficiency_problem
+        - privacy_risk
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - low
+        - medium
+        - high
+        - critical
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Sanitized summary of the issue.
+    validations:
+      required: true
+  - type: textarea
+    id: expected-observed
+    attributes:
+      label: Expected and observed behavior
+      value: |
+        Expected:
+
+        Observed:
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sanitized evidence
+      description: Do not include raw transcripts, secrets, source code, local paths, or private URLs unless approved.
+    validations:
+      required: true
+  - type: textarea
+    id: suggested-action
+    attributes:
+      label: Suggested action
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy checks
+      options:
+        - label: Raw transcripts are not attached.
+          required: true
+        - label: Secrets, local paths, and private URLs are redacted.
+          required: true
+        - label: Public upstream reporting has human approval when applicable.
+          required: true

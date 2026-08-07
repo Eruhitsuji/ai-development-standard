@@ -1,0 +1,76 @@
+schema_version: 1
+
+description: Provider-neutral AI development event schema.
+
+required:
+  - record_type
+  - provider
+  - session_id
+  - event_id
+  - event.kind
+  - source
+
+event_kinds:
+  - session_start
+  - session_end
+  - user_message
+  - assistant_message
+  - tool_call
+  - tool_result
+  - command_start
+  - command_result
+  - file_read
+  - file_create
+  - file_edit
+  - file_delete
+  - patch
+  - git_command
+  - github_operation
+  - test_start
+  - test_result
+  - error
+  - warning
+  - approval_request
+  - approval_result
+  - agent_spawn
+  - agent_result
+
+fields:
+  record_type:
+    const: event
+  provider:
+    type: string
+  session_id:
+    type: string
+  event_id:
+    type: string
+  timestamp:
+    type: iso8601_string_or_null
+  cwd:
+    type: string_or_null
+  event.kind:
+    type: enum
+    values: event_kinds
+  event.command:
+    type: string_or_null
+  event.exit_code:
+    type: integer_or_null
+  event.path:
+    type: string_or_null
+  event.paths:
+    type: list
+  event.message:
+    type: string_or_null
+  event.approval:
+    type: string_or_null
+  source.archive_record:
+    type: string
+  source.source_id:
+    type: string
+  source.provider_native_type:
+    type: string_or_null
+
+requirements:
+  - Keep provider-native metadata when it may help future analyzers.
+  - Never require provider-specific analyzers for common checks.
+  - Preserve source references for human review and deduplication.

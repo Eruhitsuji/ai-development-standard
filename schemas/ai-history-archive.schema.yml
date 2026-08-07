@@ -1,0 +1,106 @@
+schema_version: 1
+
+description: >
+  Contract for local AI development history archives. The archive is a JSONL
+  stream. Each line is one record with a record_type field.
+
+record_types:
+  archive_metadata:
+    required:
+      - record_type
+      - schema_version
+      - created_at
+      - project_dir
+      - exact_root
+      - include_raw
+      - providers
+    fields:
+      record_type:
+        const: archive_metadata
+      schema_version:
+        type: integer
+      created_at:
+        type: iso8601_string
+      project_dir:
+        type: string
+      exact_root:
+        type: boolean
+      include_raw:
+        type: boolean
+      providers:
+        type: list
+
+  source_file:
+    required:
+      - record_type
+      - provider
+      - source_id
+      - source_path
+      - size_bytes
+      - sha256
+      - project_association
+    fields:
+      record_type:
+        const: source_file
+      provider:
+        type: string
+      source_id:
+        type: string
+      source_path:
+        type: string
+      size_bytes:
+        type: integer
+      sha256:
+        type: string
+      project_association:
+        type: object
+
+  raw_source:
+    required:
+      - record_type
+      - provider
+      - source_id
+      - content
+    fields:
+      record_type:
+        const: raw_source
+      provider:
+        type: string
+      source_id:
+        type: string
+      content:
+        type: string
+
+  event:
+    required:
+      - record_type
+      - provider
+      - session_id
+      - event_id
+      - event
+      - source
+    fields:
+      record_type:
+        const: event
+      provider:
+        type: string
+      session_id:
+        type: string
+      event_id:
+        type: string
+      timestamp:
+        type: iso8601_string_or_null
+      cwd:
+        type: string_or_null
+      event:
+        type: object
+      source:
+        type: object
+
+privacy:
+  raw_content_default:
+    value: omitted
+  raw_content_allowed_when:
+    - local_analysis
+    - explicit_human_approval
+    - repository_policy_allows_collection
